@@ -1,0 +1,52 @@
+@each $bgImg in drops, brandon, wills, clifton {
+	.panel__background--#{$bgImg} {
+		background-image: url(../img/#{$bgImg}.jpg);
+		@extend %backgrounds;
+	}
+}
+
+#home {
+	.panel {
+		@include e(background) {
+			width: 100%;
+			height: 100%;
+			background-color: $primary-color;
+			position: fixed;
+			top: 0;
+		}
+		@include e(content) {
+			position: relative;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			.flexbox & {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+			.head-block {
+				color: $highlight-color;
+				padding: em(16px);
+				border: $highlight-color solid em(2px);
+				width: 80%;
+				@include mq(large) {
+					width: 60%;
+				}
+				@include mq(x-large) {
+					width: 40%;
+				}
+				h1 {
+					font-size: em(32px);
+					margin: 0;
+					@include mq(large) {
+						font-size: em(40px);
+					}
+				}
+				h2 {
+					font-size: em(24px);
+					margin: 0;
+				}
+			}
+		}
+	}
+}

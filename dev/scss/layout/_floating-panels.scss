@@ -1,0 +1,22 @@
+.main-wrapper {
+	position: relative;
+}
+
+
+
+.panel {
+	width: 100%;
+	text-align: center;
+	position: relative;
+	@include e(content) {
+		height: 100%;
+		position: relative;
+	}
+	&.fixed-bg {
+		background-attachment: fixed;
+	}
+	.floating {
+		z-index: 100;
+	}
+}
+

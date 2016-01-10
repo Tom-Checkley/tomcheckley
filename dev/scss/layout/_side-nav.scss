@@ -1,0 +1,52 @@
+
+.side-nav {
+	position: fixed;
+	top: 0;
+	height: 100%;
+	width: 350px;
+	z-index: 1000;
+	background-color: rgba($primary-bg-color,.9);
+	&.is-open {
+		left: -50px;
+		.csstransitions & {
+			transition: left .8s;
+		}
+	}
+	&.is-closed {
+		left: -380px;
+		.csstransitions & {
+			transition: left .8s;
+		}
+	}
+	.csscalc.csstransforms & {
+		height: calc(100% + 200px);
+		transform: rotate(3deg);
+		top: -100px;
+	}
+	@include e(wrapper) {
+		margin: 100px 50px;
+		.csscalc.csstransforms & {
+			height: calc(100% - 200px);
+			transform: rotate(-3deg);
+		}
+	}
+	@include e(button) {
+		height: 20px;
+		padding: 2px 0;
+		position: absolute;
+		right: -150px;
+		margin-top: 6px;
+		@include m(text) {
+			// font-size: em(12px);
+			position: absolute;
+			right: 22px;
+			top: 0;
+		}
+		@include m(arrow) {
+			display: none;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+}
