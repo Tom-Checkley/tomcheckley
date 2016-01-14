@@ -1,22 +1,18 @@
 
 .side-nav {
-	position: fixed;
-	top: 0;
-	height: 100%;
-	width: 350px;
-	z-index: 1000;
-	background-color: rgba($primary-bg-color,.9);
-	&.is-open {
-		left: -50px;
-		.csstransitions & {
-			transition: left .8s;
+	.js & {
+		position: fixed;
+		top: 0;
+		height: 100%;
+		width: 350px;
+		z-index: 1000;
+		background-color: rgba($primary-bg-color,.9);
+		& .is-hidden-js {
+			display: none;
 		}
 	}
-	&.is-closed {
-		left: -380px;
-		.csstransitions & {
-			transition: left .8s;
-		}
+	.csstransitions & {
+		transition: left .6s;
 	}
 	.csscalc.csstransforms & {
 		height: calc(100% + 200px);
@@ -24,29 +20,41 @@
 		top: -100px;
 	}
 	@include e(wrapper) {
-		margin: 100px 50px;
+		margin-top: 100px;
+		padding-left: 50px;
+		position: relative;
+		nav {
+			height: calc(100% - 140px);
+			overflow: hidden;
+			position: relative;
+			top: 70px;
+			ul {
+				list-style: none;
+				padding-left: 20px;
+				height: 100%;
+				position: absolute;
+				left: 500px;
+				.flexbox & {
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+				}
+				li {
+					a{
+						font-size: em(36px);
+					}
+				}
+			}
+		}
 		.csscalc.csstransforms & {
 			height: calc(100% - 200px);
 			transform: rotate(-3deg);
 		}
 	}
 	@include e(button) {
-		height: 20px;
-		padding: 2px 0;
 		position: absolute;
-		right: -150px;
-		margin-top: 6px;
-		@include m(text) {
-			// font-size: em(12px);
-			position: absolute;
-			right: 22px;
-			top: 0;
-		}
-		@include m(arrow) {
-			display: none;
-			position: absolute;
-			top: 0;
-			right: 0;
-		}
+		top: 16px;
+		right: 0;
+
 	}
 }

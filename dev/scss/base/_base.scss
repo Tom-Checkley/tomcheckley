@@ -1,8 +1,7 @@
 html,
 body {
 	box-sizing: border-box;
-	height: 100%;
-	width: 100%;
+	@extend %max-height-width;
 	color: $primary-color;
 	font-family: 'alcubierreregular', 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
 }
@@ -10,11 +9,9 @@ body {
 button {
 	border: none;
 	outline: none;
-	background-color: inherit;
-	:hover {
-		& span {
-			color: $highlight-color;
-		}
+	background-color: transparent;
+	&:hover {
+		color: $highlight-color;
 	}
 }
 
@@ -26,4 +23,7 @@ ul {
 a {
 	text-decoration: none;
 	color: $primary-color;
+	&:hover {
+		color: $highlight-color;
+	}
 }

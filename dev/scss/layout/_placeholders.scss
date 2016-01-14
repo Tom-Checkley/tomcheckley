@@ -1,0 +1,15 @@
+%backgrounds {
+	@extend %max-height-width;
+	background-color: rgba($primary-color, 0.6);
+	position: relative;
+	top: 0;
+	left: 0;
+	color: $primary-bg-color;
+	.bgsizecover & {
+		background-size: cover;
+	}
+	.backgroundblendmode & {
+		background-blend-mode: soft-light;
+	}
+}
+

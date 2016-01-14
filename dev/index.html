@@ -29,121 +29,60 @@
 	
 <body>
 
-<!-- <div class="contact">
-	<div class="contact__btn-holder">
-		<button class="contact__button btn">
-			Contact Me <span class="icon-circle-down"></span>
-		</button>
-	</div>
-	<div class="contact__content">
-		<div class="contact__icons">
-			<ul>
-				<li>
-					<a href="tel:00447817514889">
-						<span class="icon-mobile"></span>
-						<span>07817514889</span>
-					</a>
-				</li>
-				<li>
-					<a href="http://www.facebook.com/tomcheckleywebdeveloper">
-						<span class="icon-facebook2"></span>
-						<span>www.facebook.com/tomcheckleywebdeveloper</span>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<span class="icon-twitter2"></span>
-						<span class="is-hidden">@tomcheckley</span>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<span class="icon-google-plus2"></span>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<span class="icon-github"></span>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div>
-			<form class="grid" enctype="text/plain">
-					<div class="row">
-						<div class="sm-grid__col--8 sm-offset__col--2 lg-grid__col--4 lg-offset__col--4">
-							<input name="name" type="text" placeholder="Name">
-						</div>
-					</div>
-					
-					<div class="row">
-						<div  class="sm-grid__col--8 sm-offset__col--2 lg-grid__col--4 lg-offset__col--4">
-							<input name="email" type="email" placeholder="Email">
-						</div>
-					</div>
 
-					<div class="row">
-						<div  class="sm-grid__col--8 sm-offset__col--2 lg-grid__col--4 lg-offset__col--4">
-							<input name="tel" type="tel" placeholder="Phone number">
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="sm-grid__col--8 sm-offset__col--2 lg-grid__col--4 lg-offset__col--4">
-							<textarea name="message" placeholder="Message"></textarea>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="sm-grid__col--6 sm-offset__col--3 lg-grid__col--2 lg-offset__col--5">
-							<input name="submit" type="submit" value="Send">
-						</div>
-					</div>
-				</form>
-		</div>
-	</div>
-</div> -->
-
+<!-- Side nav -->
 <div class="side-nav is-closed"> 
 	<div class="side-nav__wrapper "> 	
-	 	<button class="side-nav__button ">
-	 		<span class="side-nav__button--text">Menu</span>
-	 		<span class="icon-circle-right side-nav__button--arrow"></span>
+	 	<button class="side-nav__button close">
+	 		<span class="side-nav__button--text">Close</span>
+	 		<span class="icon-cancel-circle"></span>
 	 	</button>
 	 	<nav>
-	 		<ul>
+	 		<ul class="side-nav__links">
 	 			<li>
-	 				<a href="#profile">Profile</a>
+	 				<a  class="nav-link" href="#profile">Profile</a>
 	 			</li>
 	 			<li>
-	 				<a href="#skills">Skills</a>
+	 				<a class="nav-link" href="#skills">Skills</a>
 	 			</li>
 	 			<li>
-	 				<a href="#portfolio">Portfolio</a>
+	 				<a class="nav-link" href="#portfolio">Portfolio</a>
 	 			</li>
-	 			<li>
+	 			<li class="is-hidden-js">
 	 				<a href="#contact">Contact</a>
 	 			</li>
 	 		</ul>
 	 	</nav>
 	</div>
-</div>
+</div> <!-- End of side nav -->
+
+
+<!-- fixed nav bar top -->
+<div class="navbar">
+	<button class="navbar__button menu"><span class="icon-menu"></span> <span>Menu</span></button>
+	<div class="navbar__logo">
+		<h1>Tom Checkley <span>Web Development</span></h1>
+	</div>
+	<button class="navbar__button contact"><span class="text">Contact Me </span><span class="icon-circle-down arrow"></span></button>
+</div> <!-- End fixed nav bar -->
+
+<!-- Opening screen rotating backgrounds -->
+<div class="fixed-bg panel__background panel">
+	<div class="panel__background--brandon"></div>
+	<div class="panel__background--wills"></div>
+	<div class="panel__background--clifton"></div>
+</div> <!-- End rotating bg's -->
 
 <div class="main-wrapper">
 	
 	<div id="home" class="fixed-bg panel">
-		<div class="panel__background">
-			<div class="panel__background--brandon"></div>
-			<div class="panel__background--wills"></div>
-			<div class="panel__background--clifton"></div>
-		</div>
 		<div class="panel__content grid">
 			<div class="head-block centered">
-				<h1>Tom Checkley<br>Web Development</h1>
+				<h1>TOM CHECKLEY<br>WEB DEVELOPMENT</h1>
 				<h2>Bristol based front end web developer</h2>
 			</div>
-			<div>
-				<a href="#profile">
+			<div class="panel__content--foot">
+				<a href="#profile" class="nav-link">
 					<span class="icon-circle-down"></span>
 				</a>
 			</div>
@@ -152,35 +91,89 @@
 
 	<div id="profile" class="floating panel">
 		<div class="panel__content grid">
-			<h1>Profile</h1>
-			<p>
-				I have been teaching myself front-end web development since mid 2014. Since then my knowledge has increased massively. I have found that I have a real passion for the subject and seem to be spending a lot of my spare time writing code, I have even started spelling color incorrectly!
-			</p>
-			<p>
-				I am continually looking to increase my knowledge. Whether working freelance, being a part of a project or, preferably, gaining a Junior Developers Position. 
-			</p>
-			<p>
-				Have a look at some sites I have already created,
-				some for fun and others I've been commisioned for, in the portfolio section of this page and feel free to get in touch with me either by email or social media. I'd love to hear from you concerning any projects I may be able to help with or any available positions.
-			</p>
-			<p>
-				Thanks for visiting.
-			</p>
-			<p>
-				Tom
-			</p>
-			<div class="foot__holder">
-				<a href="#skills" class="next-panel"><span class="icon-circle-down"></span></a>
+			<div class="row">
+				<div class="sm-grid__col--12 sm-offset__col--0 md-grid__col--10 md-offset__col--1 lg-grid__col--8 lg-offset__col--2">
+					<h1>Profile</h1>
+					<!-- <img src="img/portrait.png" alt="portrait picture"> -->
+					<p>
+						I started teaching myself front-end web development mid 2014 and have gone on to do a number of freelance jobs. I'm currently looking for full time employment.
+					</p>
+					<p>
+						My knowledge has increased massively since starting and I have found that I have a real passion for the subject. A fair chunk of my spare time is spent writing code, I've even started spelling color incorrectly!
+					</p>
+					<p>
+						I am continually looking to increase my knowledge. Whether working freelance, being a part of a project or, preferably, gaining a Junior Developers Position. 
+					</p>
+					<p>
+						Have a look at some sites I have already created in the portfolio section,
+						some for fun and others I've been commisioned for. Please feel free to get in touch with me either by email or social media. I'd love to hear from you concerning any projects I may be able to help with or any available positions.
+					</p>
+					<p>
+						Thanks for visiting.
+					</p>
+					<p>
+						Tom
+					</p>
+				</div>
+			</div>
+			<div class="panel__content--foot">
+				<a href="#skills" class="next-panel nav-link"><span class="icon-circle-down"></span></a>
 			</div>
 		</div>
 	</div>
 
-	<div id="skills" class="fixed-bg panel drops">
+	<div id="skills" class="fixed-bg panel panel__background--drops">
 		<div class="panel__content grid">
 
 		</div>
+		<div class="foot__holder">
+			<a href="#skills" class="next-panel nav-link"><span class="icon-circle-down"></span></a>
+		</div>
 	</div>
 
+</div>
+
+<!-- contact page -->
+<div class="contact-menu panel">
+	<div class="wrapper">
+		<ul>
+			<li>
+				<a href="tel:00447817514889">
+					<span class="icon-mobile"></span>
+					<span class="is-hidden">07817514889</span>
+				</a>			
+			</li>
+			<li>
+				<a href="mailto:tom_checkley@hotmail.com">
+					<span class="icon-mail"></span>
+					<span class="is-hidden">tom_checkley@hotmail.com</span>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.facebook.com/tomcheckleywebdeveloper">
+					<span class="icon-facebook2"></span>
+					<span class="is-hidden">www.facebook.com/tomcheckleywebdeveloper</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span class="icon-twitter2"></span>
+					<span class="is-hidden">@tomcheckley</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span class="icon-linkedin"></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://github.com/Tom-Checkley">
+					<span class="icon-github"></span>
+					<span class="is-hidden">Tom-Checkley</span>
+				</a>
+			</li>
+		</ul>
+	</div>
 </div>
 
 </body>

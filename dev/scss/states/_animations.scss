@@ -1,9 +1,26 @@
+// for rotating arrow in contact me button
+
 .is-rotating-open {
 	transform: rotate(0deg);
-	transition: .6s;
+	transition: transform .6s;
 }
 
 .is-rotating-closed {
 	transform: rotate(-180deg);
+	transition: transform .6s;
+}
+
+// for the side nav sliding in
+
+.is-closed {
+	left: -500px;
 	transition: .6s;
 }
+
+.is-open {
+	left: -50px;
+	transition: .6s;
+}
+
+
+
