@@ -734,16 +734,28 @@ a {
     background-color: #0b0d14; }
 
 .panel__background--drops {
-  background-image: url(../img/drops.jpg); }
+  background-image: url(../img/sm-drops.jpg); }
+  @media (min-width: 768px) {
+    .panel__background--drops {
+      background-image: url(../img/drops.jpg); } }
 
 .panel__background--brandon {
-  background-image: url(../img/brandon.jpg); }
+  background-image: url(../img/sm-brandon.jpg); }
+  @media (min-width: 768px) {
+    .panel__background--brandon {
+      background-image: url(../img/brandon.jpg); } }
 
 .panel__background--wills {
-  background-image: url(../img/wills.jpg); }
+  background-image: url(../img/sm-wills.jpg); }
+  @media (min-width: 768px) {
+    .panel__background--wills {
+      background-image: url(../img/wills.jpg); } }
 
 .panel__background--clifton {
-  background-image: url(../img/clifton.jpg); }
+  background-image: url(../img/sm-clifton.jpg); }
+  @media (min-width: 768px) {
+    .panel__background--clifton {
+      background-image: url(../img/clifton.jpg); } }
 
 .navbar {
   height: 40px;
