@@ -71,3 +71,57 @@ span[class*='icon-'] {
   font-weight: normal;
   font-style: normal;
 }
+
+
+@font-face {
+	font-family: 'bitIcon';
+	src:url('../fonts/biticon/bitIcon.eot?dm333u');
+	src:url('../fonts/biticon/bitIcon.eot?dm333u#iefix') format('embedded-opentype'),
+			url('../fonts/biticon/bitIcon.ttf?dm333u') format('truetype'),
+			url('../fonts/biticon/bitIcon.woff?dm333u') format('woff'),
+			url('../fonts/biticon/bitIcon.svg?dm333u#bitIcon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="bitIcon-"], [class*=" bitIcon-"] {
+	font-family: 'bitIcon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.bitIcon-css3-sq:before {
+	content: "\e608";
+}
+.bitIcon-html5-sq:before {
+	content: "\e60e";
+}
+.bitIcon-js-sq:before {
+	content: "\e614";
+}
+.bitIcon-sass-sq:before {
+	content: "\e634";
+}
+.bitIcon-shell-sq:before {
+	content: "\e638";
+}
+
+
+
+
+
+
+
+
+
+
+
+

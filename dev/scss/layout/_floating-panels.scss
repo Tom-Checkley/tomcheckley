@@ -2,6 +2,7 @@
 	position: relative;
 	z-index: 100;
 	top: 0;
+	width: 100%;
 }
 
 
@@ -10,19 +11,12 @@
 	width: 100%;
 	position: relative;
 	@include e(content) {
-		// .flexbox & {
-		// 	display: flex;
-		// 	flex-direction: column;
-		// }
 		height: 100%;
 		position: relative;
 		@include m(foot) {
 			@extend %clearfix;
 			width: 100%;
-			// position: absolute;
-			bottom: 0;
 			text-align: center;
-			padding: em(16px);
 		}
 	}
 	&.fixed-bg {
@@ -34,14 +28,16 @@
 	@include e(background) {
 		position: fixed;
 		background-color: $primary-color;
+
 	}
+
 }
 
 @each $bgImg in drops, brandon, wills, clifton {
 	.panel__background--#{$bgImg} {
-		background-image: url(../img/sm-#{$bgImg}.jpg);
+		background-image: url(../img/backgrounds/sm-#{$bgImg}.jpg);
 		@include mq(large) {
-			background-image: url(../img/#{$bgImg}.jpg);
+			background-image: url(../img/backgrounds/#{$bgImg}.jpg);
 		}
 		@extend %backgrounds;
 	}

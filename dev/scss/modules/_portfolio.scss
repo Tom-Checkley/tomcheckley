@@ -1,0 +1,12 @@
+#portfolio {
+	background-color: $primary-bg-color;
+	color: $primary-color;
+	.site-link {
+		@extend %centered;
+		display: block;
+		width: 90%;
+		h1 {
+			font-size: em(24px);
+		}
+	}
+}

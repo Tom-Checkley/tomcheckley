@@ -1,9 +1,16 @@
+
+
 html,
 body {
-	box-sizing: border-box;
 	@extend %max-height-width;
 	color: $primary-color;
 	font-family: 'alcubierreregular', 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+h1 {
+	text-align: center;
 }
 
 button {
@@ -26,4 +33,8 @@ a {
 	&:hover {
 		color: $highlight-color;
 	}
+}
+
+img {
+	width: 100%;
 }

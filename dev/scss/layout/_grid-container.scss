@@ -3,15 +3,19 @@
 // ============================================================================
 
 .grid {
+	& * {
+		box-sizing: border-box;
+	}
 	@extend %clearfix;
 	@extend .centered;
 	width: 90%;
+	
 	// full width grid
 	&__full-width {
 		width: 100%;
 	}
 	// nested grid 100%
-	[class*='grid__col--'] > & {
+	[class*='grid__col--'] & {
 		width: 100%;
 	}
 	// set max-width 
@@ -22,4 +26,5 @@
 
 .row {
 	@extend %clearfix;
+	margin: em(12px) 0;
 }

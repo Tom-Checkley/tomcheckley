@@ -4,20 +4,26 @@
 	text-align: center;
 	span {
 		position: absolute;
-		bottom: em(24px);
+		bottom: calc(20% + 70px);
 		font-size: em(24px);
 		color: $primary-bg-color;
+		.flexbox & {
+			bottom: em(24px);
+		}
 	}
 	.panel {
 		@include e(content) {
 			position: relative;
 			top: 0;
-			@extend %max-height-width;
+			padding-top: 20%;
+			padding-bottom: -20%;
 			.flexbox & {
+				padding: 0;
 				display: flex;
 				flex-direction: column;
-				justify-content: space-around;
+				justify-content: center;
 			}
+			@extend %max-height-width;
 			.head-block {
 				padding: em(16px);
 				border: $primary-bg-color solid em(2px);

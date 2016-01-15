@@ -1,0 +1,55 @@
+#skills {
+	background-color: darken($primary-color, 0.5%);
+	a {
+		color: $primary-bg-color;
+	}
+	.languages,
+	.tools {
+		background-color: rgba($primary-bg-color, 0.6);
+		margin: em(12px);
+		&:after {
+			content: '';
+			display: table;
+			clear: left;
+		}
+		h1 {
+			margin: 0;
+			font-size: em(24px);
+		}
+		ul{
+			list-style: none;
+			width: 100%;
+			li {
+				display: inline-block;
+				text-align: center;
+				img {
+					height: 80px;
+					width: auto;
+				}
+				span {
+					font-size: em(48px);
+				}
+				p {
+					margin: em(6px) 0;
+				}
+			}
+		}
+	}
+	.treehouse {
+		float: right;
+		text-align: center;
+		a {
+			background-color: rgba($primary-bg-color, 0.6);
+			display: block;
+			padding: 16px 16px 0;
+			width: 70%;
+			margin: auto;
+			@include mq(x-large) {
+				width: 50%;
+			}
+			&:hover {
+				background-color: $primary-bg-color;
+			}
+		}
+	}
+}
