@@ -10357,24 +10357,24 @@ $(document).ready(function() {
 'use strict';
 	
 
-	// set height of main panels
-	function screenTest() {
-		var screenHeight = window.innerHeight;
-		$('.panel').each(function() {
-			var $this = $(this);
-			if ($this.height() < screenHeight) {
-				$this.css('height', screenHeight);
-			} else {
-				$this.css('height', 'min-content');
-			}
-		});
-	}
+	// // set height of main panels
+	// function screenTest() {
+	// 	var screenHeight = window.innerHeight;
+	// 	$('.panel').each(function() {
+	// 		var $this = $(this);
+	// 		if ($this.height() < screenHeight) {
+	// 			$this.css('height', screenHeight);
+	// 		} else {
+	// 			$this.css('height', 'min-content');
+	// 		}
+	// 	});
+	// }
 
-	screenTest();
+	// screenTest();
 
-	$(window).on('resize', function() {
-		screenTest();
-	});
+	// $(window).on('resize', function() {
+	// 	screenTest();
+	// });
 
 
 
@@ -10519,6 +10519,29 @@ $(document).ready(function() {
 			$('.contact-menu').removeClass('open').addClass('closed');
 		}
 		$('.contact-menu').slideToggle(600);
+	});
+
+
+
+	// change height of git logo to same as other portfolio imgs
+
+	function adjustLogoHeight() {
+		var height = $('.screenshot').height();
+		$('.gitLogo').css({
+			'height': height,
+			'width': 'auto'
+		});
+		console.log('height adjusted to ' + height);
+	}
+
+	adjustLogoHeight();
+
+	var timeout;
+	$(window).resize(function() {
+		clearTimeout(timeout);
+		timeout = setTimeout(function() {
+			adjustLogoHeight();
+		},10);
 	});
 
 }); //end document.ready

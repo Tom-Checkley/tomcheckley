@@ -9,7 +9,7 @@
 	@extend %clearfix;
 	@extend .centered;
 	width: 90%;
-	
+
 	// full width grid
 	&__full-width {
 		width: 100%;
@@ -27,4 +27,9 @@
 .row {
 	@extend %clearfix;
 	margin: em(12px) 0;
+	.flexbox & {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
 }
