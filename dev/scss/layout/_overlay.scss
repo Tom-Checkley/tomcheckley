@@ -1,0 +1,59 @@
+#overlay {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba($primary-color, 0.99);
+	color: $primary-bg-color;
+	display: none;
+	z-index: 2000;
+	button {
+		position: absolute;
+		right: 0;
+		z-index: 1500;
+		width: auto;
+	}
+	.overlay__content {
+		position: absolute;
+		top: 0;
+		@extend %max-height-width;
+		.flexbox & {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+		}
+		.spinner {
+			span { 
+				font-size: em(48px);
+				position: absolute;
+				.cssanimations & {
+					animation-duration: 1s;
+					animation-name: rotating;
+				  animation-iteration-count: infinite;
+				  animation-timing-function: linear;
+				}
+			}
+		}
+		img {
+			display: block;
+			width: 100%;
+		}
+		a {
+			background-color: rgba($primary-bg-color, 0.7);
+			border-radius: 8px;
+			&:hover {
+				background-color: $primary-bg-color;
+			}
+		}
+	}
+}
+
+@keyframes rotating {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}

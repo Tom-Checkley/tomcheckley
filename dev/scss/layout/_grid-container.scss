@@ -27,9 +27,4 @@
 .row {
 	@extend %clearfix;
 	margin: em(12px) 0;
-	.flexbox & {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
-	}
 }

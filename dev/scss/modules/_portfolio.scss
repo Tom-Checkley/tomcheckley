@@ -1,6 +1,16 @@
 #portfolio {
 	background-color: $primary-bg-color;
 	color: $primary-color;
+	h1 {
+		margin-bottom: 0;
+	}
+	.row {
+		.flexbox & {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+	}
 	.site-link {
 		@extend .centered;
 		display: block;

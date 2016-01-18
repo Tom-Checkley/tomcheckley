@@ -1,6 +1,6 @@
 /*!
  * modernizr v3.2.0
- * Build http://modernizr.com/download?-backgroundblendmode-bgsizecover-csscalc-csstransforms-csstransitions-flexbox-shapes-svg-addtest-fnbind-printshiv-testprop-dontmin
+ * Build http://modernizr.com/download?-backgroundblendmode-bgsizecover-cssanimations-csscalc-csstransforms-csstransitions-flexbox-shapes-svg-addtest-fnbind-printshiv-testprop-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -1600,6 +1600,26 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
 */
 
   Modernizr.addTest('flexbox', testAllProps('flexBasis', '1px', true));
+
+/*!
+{
+  "name": "CSS Animations",
+  "property": "cssanimations",
+  "caniuse": "css-animation",
+  "polyfills": ["transformie", "csssandpaper"],
+  "tags": ["css"],
+  "warnings": ["Android < 4 will pass this test, but can only animate a single property at a time"],
+  "notes": [{
+    "name" : "Article: 'Dispelling the Android CSS animation myths'",
+    "href": "http://goo.gl/OGw5Gm"
+  }]
+}
+!*/
+/* DOC
+Detects whether or not elements can be animated using CSS
+*/
+
+  Modernizr.addTest('cssanimations', testAllProps('animationName', 'a', true));
 
 
   /**

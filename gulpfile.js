@@ -148,7 +148,7 @@ gulp.task('watchFiles', function() {
 
 // clear old dist folder
 gulp.task('build-cleanfolder', function(cb){
-	del([
+	return del([
 		'dist/**'
 	], cb);
 });
@@ -168,6 +168,6 @@ gulp.task('build-removefiles', ['build-copy'], function(cb){
 		], cb);
 });
 
-gulp.task('build', ['build-copy', 'build-removefiles']);
+gulp.task('build', ['build-removefiles']);
 
 gulp.task('default', ['lint', 'compileSass', 'minifyScripts', 'browser-sync', 'watchFiles']);

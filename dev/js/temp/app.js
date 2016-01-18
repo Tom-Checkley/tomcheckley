@@ -10503,18 +10503,14 @@ $(document).ready(function() {
 		if($('.contact-menu').hasClass('closed')) {
 			navBgColor = $('.navbar').css('background-color');
 		}
-		console.log(navBgColor);
 		if($('.contact-menu').hasClass('closed')) {
-			console.log(navBgColor);
 			$('body').addClass('stop-scrolling').bind('touchmove', function(e){e.preventDefault();});
 			$('.navbar').css('background-color', 'rgba(11,13,20,1)');
 			$('.arrow').removeClass('is-rotating-open').addClass('is-rotating-closed');
 			$('.contact-menu').removeClass('closed').addClass('open');
 		} else {
 			$('body').removeClass('stop-scrolling').unbind('touchmove');
-			console.log(navBgColor);
 			$('.navbar').css({'background-color': navBgColor});
-			console.log(navBgColor);
 			$('.arrow').removeClass('is-rotating-closed').addClass('is-rotating-open');
 			$('.contact-menu').removeClass('open').addClass('closed');
 		}
@@ -10526,12 +10522,11 @@ $(document).ready(function() {
 	// change height of git logo to same as other portfolio imgs
 
 	function adjustLogoHeight() {
-		var height = $('.screenshot').height();
+		var height = $('.screenshot').load().height();
 		$('.gitLogo').css({
 			'height': height,
 			'width': 'auto'
 		});
-		console.log('height adjusted to ' + height);
 	}
 
 	adjustLogoHeight();
@@ -10544,11 +10539,41 @@ $(document).ready(function() {
 		},10);
 	});
 
+	$(window).resize();
+
+
+	// ajax for portfolio
+	var $link = $('.site-link'),
+			$holder = $('#ajax-container'),
+			$spinner = $('.spinner');
+	$link.on('click', function(event) {
+		$('body').addClass('stop-scrolling').bind('touchmove', function(e){e.preventDefault();});
+		event.preventDefault();
+		$holder.empty();
+		$spinner.show();
+		var content = $(this).attr('href');
+		$('#overlay').show();
+		$holder.load(content);
+		$spinner.hide();
+
+	});
+
+	$('#overlay button').on('click', function() {
+		$('body').removeClass('stop-scrolling').unbind('touchmove');
+		$('#overlay').hide();
+		
+	});
+
+
+
+
+
+
 }); //end document.ready
 
 /*!
  * modernizr v3.2.0
- * Build http://modernizr.com/download?-backgroundblendmode-bgsizecover-csscalc-csstransforms-csstransitions-flexbox-shapes-svg-addtest-fnbind-printshiv-testprop-dontmin
+ * Build http://modernizr.com/download?-backgroundblendmode-bgsizecover-cssanimations-csscalc-csstransforms-csstransitions-flexbox-shapes-svg-addtest-fnbind-printshiv-testprop-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -12148,6 +12173,26 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
 */
 
   Modernizr.addTest('flexbox', testAllProps('flexBasis', '1px', true));
+
+/*!
+{
+  "name": "CSS Animations",
+  "property": "cssanimations",
+  "caniuse": "css-animation",
+  "polyfills": ["transformie", "csssandpaper"],
+  "tags": ["css"],
+  "warnings": ["Android < 4 will pass this test, but can only animate a single property at a time"],
+  "notes": [{
+    "name" : "Article: 'Dispelling the Android CSS animation myths'",
+    "href": "http://goo.gl/OGw5Gm"
+  }]
+}
+!*/
+/* DOC
+Detects whether or not elements can be animated using CSS
+*/
+
+  Modernizr.addTest('cssanimations', testAllProps('animationName', 'a', true));
 
 
   /**

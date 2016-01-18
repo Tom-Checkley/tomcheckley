@@ -7,14 +7,16 @@
 	.tools {
 		background-color: rgba($primary-bg-color, 0.6);
 		margin: em(12px);
+		border-radius: 8px;
 		&:after {
 			content: '';
 			display: table;
 			clear: left;
 		}
-		h1 {
-			margin: 0;
+		h2 {
 			font-size: em(24px);
+			margin-bottom: 0;
+			text-align: center;
 		}
 		ul{
 			list-style: none;
@@ -39,13 +41,20 @@
 		float: right;
 		text-align: center;
 		a {
+			border-radius: 8px;
 			background-color: rgba($primary-bg-color, 0.6);
 			display: block;
 			padding: 16px 16px 0;
 			width: 70%;
 			margin: auto;
+			@include mq(medium) {
+				width: 100%;
+			}
+			@include mq(large) {
+				width: 60%;
+			}
 			@include mq(x-large) {
-				width: 50%;
+				width: 40%;
 			}
 			&:hover {
 				background-color: $primary-bg-color;
