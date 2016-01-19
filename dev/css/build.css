@@ -865,56 +865,87 @@ img {
         transition: transform .6s;
         transition: transform .6s, -webkit-transform .6s; }
 
-#overlay {
+#overlay__background {
   position: fixed;
   top: 0;
+  bottom: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(11, 13, 20, 0.99);
-  color: #f9f9f9;
+  background-color: rgba(11, 13, 20, 0.98);
   display: none;
   z-index: 2000; }
+
+#overlay {
+  z-index: 2500;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  color: #f9f9f9;
+  display: none; }
   #overlay button {
     position: absolute;
     right: 0;
-    z-index: 1500;
     width: auto; }
-  #overlay .overlay__content {
-    position: absolute;
-    top: 0; }
-    .flexbox #overlay .overlay__content {
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-direction: column;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      -webkit-justify-content: space-around;
-          -ms-flex-pack: distribute;
-              justify-content: space-around;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center; }
-    #overlay .overlay__content .spinner span {
-      font-size: 3em;
-      position: absolute; }
-      .cssanimations #overlay .overlay__content .spinner span {
-        -webkit-animation-duration: 1s;
-                animation-duration: 1s;
-        -webkit-animation-name: rotating;
-                animation-name: rotating;
-        -webkit-animation-iteration-count: infinite;
-                animation-iteration-count: infinite;
-        -webkit-animation-timing-function: linear;
-                animation-timing-function: linear; }
-    #overlay .overlay__content img {
-      display: block;
-      width: 100%; }
-    #overlay .overlay__content a {
-      background-color: rgba(249, 249, 249, 0.7);
-      border-radius: 8px; }
-      #overlay .overlay__content a:hover {
-        background-color: #f9f9f9; }
+  .flexbox #overlay .overlay__content {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  #overlay .overlay__content .spinner span {
+    font-size: 3em;
+    position: absolute; }
+    .cssanimations #overlay .overlay__content .spinner span {
+      -webkit-animation-duration: 1s;
+              animation-duration: 1s;
+      -webkit-animation-name: rotating;
+              animation-name: rotating;
+      -webkit-animation-iteration-count: infinite;
+              animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+              animation-timing-function: linear; }
+  #overlay .overlay__content img {
+    display: block;
+    width: 100%; }
+  #overlay .overlay__content a {
+    background-color: rgba(249, 249, 249, 0.7);
+    border-radius: 8px;
+    width: 40%;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 6px; }
+    #overlay .overlay__content a:hover {
+      background-color: #f9f9f9; }
+  #overlay .overlay__content blockquote {
+    background-color: #f9f9f9;
+    color: #0b0d14;
+    position: relative;
+    padding: 2em;
+    border-radius: 8px; }
+    #overlay .overlay__content blockquote p {
+      font-size: 0.875em; }
+    #overlay .overlay__content blockquote span {
+      height: 3.75em;
+      font-size: 3.75em;
+      font-family: times, serif;
+      margin: 0;
+      padding: 0; }
+      #overlay .overlay__content blockquote span.open-quote {
+        margin: -16px 8px 8px 0;
+        float: left; }
+      #overlay .overlay__content blockquote span.close-quote {
+        margin: 0 0 0 8px;
+        float: right; }
 
 @-webkit-keyframes rotating {
   from {
@@ -1013,6 +1044,12 @@ img {
     background-color: rgba(249, 249, 249, 0.6);
     margin: 0.75em;
     border-radius: 8px; }
+    #skills .languages *,
+    #skills .tools * {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0; }
     #skills .languages:after,
     #skills .tools:after {
       content: '';
@@ -1020,6 +1057,7 @@ img {
       clear: left; }
     #skills .languages h2,
     #skills .tools h2 {
+      padding-top: 8px;
       font-size: 1.5em;
       margin-bottom: 0;
       text-align: center; }
@@ -1113,5 +1151,6 @@ img {
   display: none; }
 
 .stop-scrolling {
+  position: absolute;
   height: 100%;
   overflow: hidden; }

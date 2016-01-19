@@ -1,21 +1,27 @@
-#overlay {
+#overlay__background{
 	position: fixed;
 	top: 0;
+	bottom: 0;
 	width: 100%;
 	height: 100vh;
-	background-color: rgba($primary-color, 0.99);
-	color: $primary-bg-color;
+	background-color: rgba($primary-color, 0.98);
 	display: none;
 	z-index: 2000;
+}
+#overlay {
+	z-index: 2500;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	min-height: 100vh;
+	color: $primary-bg-color;
+	display: none;
 	button {
 		position: absolute;
 		right: 0;
-		z-index: 1500;
 		width: auto;
 	}
 	.overlay__content {
-		position: absolute;
-		top: 0;
 		@extend %max-height-width;
 		.flexbox & {
 			display: flex;
@@ -23,6 +29,7 @@
 			justify-content: space-around;
 			align-items: center;
 		}
+		
 		.spinner {
 			span { 
 				font-size: em(48px);
@@ -42,8 +49,40 @@
 		a {
 			background-color: rgba($primary-bg-color, 0.7);
 			border-radius: 8px;
+			width: 40%;
+			display: inline-block;
+			text-align: center;
+			font-size: 16px;
+			line-height: 20px;
+			padding: 6px;
 			&:hover {
 				background-color: $primary-bg-color;
+			}
+		}
+		blockquote {
+			background-color: $primary-bg-color;
+			color: $primary-color;
+			position: relative;
+			padding: em(32px);
+			border-radius: 8px;
+			p {
+				font-size: em(14px);
+			}
+			span {
+				height: em(60px);
+				font-size: em(60px);
+				font-family: times, serif;
+				margin: 0;
+				padding: 0;
+
+				&.open-quote {
+					margin: -16px 8px 8px 0;
+					float: left;
+				}
+				&.close-quote {
+					margin: 0 0 0 8px;
+					float: right;
+				}
 			}
 		}
 	}

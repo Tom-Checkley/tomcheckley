@@ -1,0 +1,285 @@
+/******************************
+Colours
+******************************/
+
+.tabs a,
+hgroup{
+	color: #136E07;
+}
+
+.tabs a.active,
+.top,
+button{
+	color: #fff;
+}
+
+.tabs a.active,
+.top,
+button{
+	background-color: #136E07;
+}
+
+
+
+/******************************
+Fonts
+******************************/
+
+hgroup,
+h3,
+.tabs a{
+		font-family: 'Changa One', sans-serif;
+}
+
+a,
+button,
+.panel p{
+	font-family: 'Open Sans', sans-serif;
+}
+
+
+
+
+/******************************
+General
+******************************/
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+ul li{
+	list-style: none;
+}
+
+span{
+	font-weight: bold;
+}
+
+img{
+	width: 100%;
+}
+
+a{
+	text-decoration: none;
+	color: #000;
+}
+
+h3{
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 1.5rem;
+	font-weight: normal;
+}
+
+.top {
+	display: block;
+	width: 50%;
+	margin: 3% auto;
+	padding: 3px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.footer {
+	display: none;
+}
+
+
+
+/******************************
+Panels
+******************************/
+
+.panel{
+	margin: 5% 5%;
+	border: 2px solid #136E07;
+	background-color: #90D986;
+	border-radius: 10px;
+	width: 90%;
+}
+/*---Clearfix-----*/
+.panel:after,
+.footer::after { 
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.panel p{
+	padding: 0 5%;
+}
+
+.tabs{
+	display: none;
+}
+
+.tabs li{
+	list-style: none;
+	background-color: #fff;
+	border-bottom: 2px solid #136E07;
+}
+
+.tabs a{
+	display: block;
+	text-decoration: none;
+	padding: 5px 0;
+	text-align: center;
+}
+
+.tabs a.active{
+	width: 100%;
+}
+
+.panelContainer{
+	width: 90%;
+}
+
+.panelContainer{
+	margin-left: 5%;
+	clear: left;
+}
+
+
+
+/*
+Mobile Layout 
+*/
+
+/******************************
+Header & Nav
+******************************/
+
+header{
+	width: 100%;
+	background-image: radial-gradient(circle at top right, #136E07, #90D986);
+}
+
+hgroup{
+	padding: 0.5% 0;
+	text-align: center;
+	font-weight: normal;
+	font-size: 0.75em;
+}
+
+nav{
+	width: 100%;
+}
+
+button{
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	border:none;
+	box-shadow: none;
+	outline: none;
+	padding: 5px;
+	width: 100%;
+}
+
+.clicked{
+	border-bottom: #fff solid 2px;
+}
+
+/******************************
+Profile Picture
+******************************/
+
+.insert-image{
+	display: none;
+}
+
+.pic-holder{
+	width: 50%;
+	margin: 5% 25%;
+}
+
+.profile-pic{
+	width: 100%;
+	height: auto;
+	border-radius: 5%;
+
+}
+
+/******************************
+Contact Page
+******************************/
+
+.contact-links li{
+	padding: 5px;
+	line-height: 1.5em
+}
+
+.phone::before,
+.mail::before,
+.linked::before,
+.wiki::before{
+	content: "";
+	background: no-repeat center;
+	background-size: cover;
+	max-width: 30px;
+	max-height: 30px;
+	padding-right: 30px;
+}
+
+.phone::before{
+	background-image: url("../images/phone.png");	
+}
+
+.mail::before{
+	background-image: url('../images/email.png');
+}
+
+.linked::before{
+	background-image: url('../images/linkedin.png');
+}
+
+/******************************
+About Page
+******************************/
+.acknowledge{
+	line-height: 1.75em;
+	text-align: center;
+}
+
+a.wiki {
+	border: 1px #000 solid;
+	padding: 3px;
+	border-radius: 5px;
+}
+
+.wiki::before{
+	background-image: url('../images/wiki.png');
+}
+
+/******************************
+Links Page
+******************************/
+
+ul.links{
+	display: inline-block;
+	width: 100%;
+}
+
+ul.links li{
+	list-style: none;
+	width: 40%;
+	margin: 0 5% 1%;
+	float: left;
+}
+
+ul.links li img{
+	border-radius: 5px;
+}
+
+ul.links p{
+	text-align: center;
+	margin-top: -5px;
+}

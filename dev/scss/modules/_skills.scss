@@ -8,12 +8,19 @@
 		background-color: rgba($primary-bg-color, 0.6);
 		margin: em(12px);
 		border-radius: 8px;
+		& * {
+			margin-top: 0;
+			margin-bottom: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
 		&:after {
 			content: '';
 			display: table;
 			clear: left;
 		}
 		h2 {
+			padding-top: 8px;
 			font-size: em(24px);
 			margin-bottom: 0;
 			text-align: center;

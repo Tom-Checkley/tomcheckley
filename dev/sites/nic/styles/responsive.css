@@ -1,0 +1,286 @@
+/******************************
+*******************************
+			TABLET/LAPTOP
+*******************************
+******************************/
+
+
+@media screen and (min-width: 480px){
+
+/******************************
+General
+******************************/
+
+.top{
+	display: none;
+}
+
+.panel{
+	box-shadow: 15px 15px 10px rgba(0,0,0, .8);
+}
+
+h3{
+	margin-top: 5%;
+}
+
+p{
+	margin-bottom: 5%;
+}
+
+/******************************
+Header & Nav
+******************************/
+	button {
+		display: none;
+	}
+
+	header {
+		float: left;
+
+		margin-bottom: 2.5%;
+		border-bottom: 2px solid #136E07;
+	}
+
+	hgroup{
+		float: left;
+		margin: 2% 5%;
+	}
+
+	nav{
+		width: 100%;
+		float: right;
+		clear: left;
+		text-align: center;
+	}
+
+	.tabs {
+		display: block;
+	}
+
+	.tabs ul {
+		display: block;
+		border: none;
+		margin: 0;
+		padding: 0;
+		float: right;
+	}
+
+	.tabs li {
+		display: inline-block;
+		border: none;
+		background-color: inherit;
+		margin: 0 5px;
+	}
+
+	.tabs li a {
+		margin: 0;
+		padding: 5px;
+	}
+
+/******************************
+About Page
+*****************************/
+
+	img {
+		width: 100%;
+		border-radius: 5%;
+	}
+
+	.about-text{
+		float: left;
+		width: 100%;
+	}
+
+	.insert-image{
+		float: left;
+		display: block;
+		width: 30%;
+		margin: 0 5% 5% 0;
+	}
+
+	.about-image{
+		display: none;
+	}
+
+
+	.movableImg{
+		width: 30%;
+		height: auto;
+		float: left;
+		margin: 0 5% 5%;
+	}
+
+/******************************
+Contact Page
+******************************/
+	.pic-holder{
+		width: 30%;
+		margin: 0 5% 5%;
+		float: left;
+	}
+
+	.links-and-text{
+		float: left;
+		width: 50%;
+	}
+
+	.contact-links{
+		width: 100%;
+		text-align: left;
+		margin: 5% auto;
+	}
+
+/******************************
+Links Page
+******************************/
+
+	ul.links li{
+		width: 20%;
+		margin: 5% 0 5% 20%;
+	}
+
+	ul.links li p {
+		text-align: center;
+		margin-top: -7px;
+	}
+
+}
+
+
+/******************************
+*******************************
+			BIG DESKTOP
+*******************************
+******************************/
+
+
+@media screen and (min-width: 1060px){
+
+/******************************
+Header
+******************************/
+	header{
+		margin-bottom: 2.5%;
+	}
+
+	.panel{
+		width: 70%;
+		margin: 2.5% 15%;
+	}
+
+	.container2{
+		width: 100%;
+		margin: 0;
+	}
+
+	hgroup{
+		margin: 2% 5%;
+		border-bottom: 2px  solid #136E07;
+		border-top: 2px solid #136E07;
+	}
+
+	h1, h2{
+		margin: 0;
+	}
+
+	h1{
+		font-size: 3em;
+	}
+
+	h2{
+		font-size: 2em;
+		margin-top: 0.25em;
+	}
+
+/******************************
+General
+******************************/
+
+	.pic-holder {
+		width: 25%;
+		float: left;
+	}
+
+	#panel4,
+	#links-tab {
+		display: none;
+	}
+
+/******************************
+Contact Page
+******************************/
+
+	.contact-links {
+		float: left;
+		width: 25%;
+		clear: none;
+	}
+
+	.contact-text{
+		width: 50%;
+		padding: 2.5%;
+		float: left;
+	}
+
+/******************************
+Footer
+******************************/
+	*{
+		margin: 0;
+	}
+
+	html, body{
+		height: 100%;
+	}
+
+	#wrap{
+		min-height: 100%;
+		margin-bottom: -160px;
+	}
+	#wrap:after{
+		content: "";
+		display: block;
+	}
+
+	.footer, #wrap:after{
+		height:160px;	
+	}
+
+	.footer{
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  		-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  		box-sizing: border-box;
+		height: 160px;
+		width: 100%;
+		background-image: radial-gradient(circle at bottom left, #136E07, #90D986);
+		border-top: 2px solid #136E07;
+		padding: 2% 0;
+		display: block;
+	}
+
+	ul.links{		
+		display: block;
+		width: 50%;
+		float: right;
+	}
+
+	ul.links li{
+		/*padding: 5px;*/
+		display: inline-block;
+		width: 7.5%;
+		float: right;
+		margin:0 5% 0 0;
+	}
+
+	.link-holder{
+		width: 100%;
+		margin: 0 5%;
+	}
+
+	.link-holder p{
+		font-size: 0.75em;
+		text-align: center;
+		margin-top: -3px;
+	}
+
+}

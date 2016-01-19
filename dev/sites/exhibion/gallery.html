@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EXHIBION</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	
+	<link rel="stylesheet" type="text/css" href="css/style.min.css">
+
+	<link rel="shortcut icon" href="img/1.ico">
+
+	<script type="text/javascript" src="js/app.min.js"></script>
+
+	<script> 
+		var $buoop = {c:2}; 
+		function $buo_f(){ 
+		 var e = document.createElement("script"); 
+		 e.src = "//browser-update.org/update.min.js"; 
+		 document.body.appendChild(e);
+		};
+		try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+		catch(e){window.attachEvent("onload", $buo_f)}
+	</script>
+</head>
+
+<!-- 
+	===================================================================
+
+	IMPORTANT
+
+	ALL NEW IMAGES MUST BE ENTERED AS A THUMBNAIL AND SCROLLING
+	IMAGE AND FOLLOW THIS SET UP-
+
+	IN DIV WITH CLASS HEAD SCROLL AS THE LAST LI IN THE UL - 
+
+	<li class="pic[NEXT IMAGE NUMBER] horiz">
+		<a href="img/14.png">
+			<img src="img/thumbs/14.jpg" alt="&pound;5/kg" title="&pound;5/kg">
+		</a>
+	</li>
+
+	&pound;  IS THE CODE YOU NEED TO USE FOR A POUND SYMBOL IN TITLES AND ALTS
+
+	LI CLASS WILL NEED CHANGING TO
+	horiz for landscape images
+	sq for square images
+	port for portrait images
+
+
+	THEN IN THUMB-HOLDER UL, AGAIN AS THE LAST LI
+
+	<li class="pic[NEXT IMAGE NUMBER] thumb sq">
+		<a href="img/1.png" class='1'>
+			<img src="img/thumbs/1.jpg" alt="&pound;10/kg" title="&pound;10/kg">
+		</a>
+	</li>
+
+	NOTICE THE LI HAS THE CLASS thumb AS WELL AS sq (or whatever the image's layout is, as above)
+
+	THE IMAGE WILL NEED TO BE RESIZED TO AROUND 400PX AND SAVED IN THE THUMBS FOLDER IN IMAGES FOLDER
+	BE SURE TO CHECK WHETHER JPG OR PNG WHEN ADDING THEM TO THE a LINKS
+
+	IF ALL OF THIS IS FOLLOWED YOU SHOULDN'T HAVE ANY HASSLE ADDING NEW IMAGES AND IT WON'T BREAK THE JS
+	(HOPEFULLY!!)
+
+	TOM
+
+	===================================================================
+ -->
+	
+
+
+<body id="gallery">
+	<header>
+		<img src="img/banner.svg">
+		<nav>
+			<ul>
+				<li>
+					<a href="index.html" class="btn nav-button">Home</a>
+				</li>
+				<li>
+					<a href="contact.html" class="btn nav-button">Contact</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<!-- GALLERY -->
+	<article class="gallery">
+		<div class="head-scroll-holder">
+			<h1>Gallery</h1>
+			<p>Click on a thumbnail to expand and get details.</p>
+			<div class="head-scroll">
+				<ul>
+					<li class="pic1 sq">
+						<a href="img/1.png" class='1'>
+							<img src="img/thumbs/1.jpg" alt="&pound;10/kg" title="&pound;10/kg">
+						</a>
+					</li>
+					<li class="pic2 sq">
+						<a href="img/2.png">
+							<img src="img/thumbs/2.jpg" class="sq" alt="&pound;16/kg" title="&pound;16/kg">
+						</a>
+					</li>
+					<li class="pic3 horiz">
+						<a href="img/3.png">
+							<img src="img/thumbs/3.jpg" alt="&pound;6.67/kg" title="&pound;6.67/kg">
+						</a>
+					</li>
+					<li class="pic4 port">
+						<a href="img/4.png">
+							<img src="img/thumbs/4.jpg" class="port" alt="Exhibion" title="Exhibion">
+						</a>
+					</li>
+					<li class="pic5 sq">
+						<a href="img/5.png">
+							<img src="img/thumbs/5.jpg" class="sq" alt="Peru" title="Peru">
+						</a>
+					</li>
+					<li class="pic6 port">
+						<a href="img/6.png">
+							<img src="img/thumbs/6.jpg" class="port" alt="The Dee" title="The Dee">
+						</a>
+					</li>
+					<li class="pic7 port">
+						<a href="img/7.png">
+							<img src="img/thumbs/7.jpg" class="port" alt="In Memorium" title="In Memorium">
+						</a>
+					</li>
+					<li class="pic8 horiz">
+						<a href="img/8.png">
+							<img src="img/thumbs/8.jpg" alt="Kasane" title="Kasane">
+						</a>
+					</li>
+					<li class="pic9 sq">
+						<a href="img/9.png">
+							<img src="img/thumbs/9.jpg" class="sq" alt="Derpingtion" title="Derpingtion">
+						</a>
+					</li>
+					<li class="pic10 port">
+						<a href="img/10.png">
+							<img src="img/thumbs/10.jpg" class="port" alt="Dickington" title="Dickington">
+						</a>
+					</li>
+					<li class="pic11 horiz">
+						<a href="img/11.png">
+							<img src="img/thumbs/11.jpg" alt="Gus" title="Gus">
+						</a>
+					</li>
+					<li class="pic12 horiz">
+						<a href="img/12.png">
+							<img src="img/thumbs/12.jpg" alt="Captive" title="Captive">
+						</a>
+					</li>
+					<li class="pic13 horiz">
+						<a href="img/13.png">
+							<img src="img/thumbs/13.jpg" alt="Pheobechen" title="Pheobechen">
+						</a>
+					</li>
+					<li class="pic14 horiz">
+						<a href="img/14.png">
+							<img src="img/thumbs/14.jpg" alt="&pound;5/kg" title="&pound;5/kg">
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Thumbs -->
+		<div class="thumb-slides">
+			<div class="scroll-across cf">
+				<span class="icon-circle-left"></span>
+				<p>
+					Please scroll across<br>to see all thumbnails.
+				</p>
+				<span class="icon-circle-right"></span>
+				
+				
+			</div>
+			<div class="scroll-down">
+				<p>
+					Please scroll down to see all thumbnails
+				</p>
+				<div class="cf">
+				  <span class="icon-circle-up"></span>
+					<span class="icon-circle-down"></span>
+				</div>
+			</div>
+			<div class="thumb-wrapper">
+				<div class="thumb-holder cf">
+					<ul class="cf">
+						<li class="pic1 thumb sq">
+							<a href="img/1.png" class='1'>
+								<img src="img/thumbs/1.jpg" alt="&pound;10/kg" title="&pound;10/kg">
+							</a>
+						</li>
+						<li class="pic2 thumb sq">
+							<a href="img/2.png">
+								<img src="img/thumbs/2.jpg" class="sq" alt="&pound;16/kg" title="&pound;16/kg">
+							</a>
+						</li>
+						<li class="pic3 thumb horiz">
+							<a href="img/3.png">
+								<img src="img/thumbs/3.jpg" alt="&pound;6.67/kg" title="&pound;6.67/kg">
+							</a>
+						</li>
+						<li class="pic4 thumb port">
+							<a href="img/4.png">
+								<img src="img/thumbs/4.jpg" class="port" alt="Exhibion" title="Exhibion">
+							</a>
+						</li>
+						<li class="pic5 thumb sq">
+							<a href="img/5.png">
+								<img src="img/thumbs/5.jpg" class="sq" alt="Peru" title="Peru">
+							</a>
+						</li>
+						<li class="pic6 thumb port">
+							<a href="img/6.png">
+								<img src="img/thumbs/6.jpg" class="port" alt="The Dee" title="The Dee">
+							</a>
+						</li>
+						<li class="pic7 thumb port">
+							<a href="img/7.png">
+								<img src="img/thumbs/7.jpg" class="port" alt="In Memorium" title="In Memorium">
+							</a>
+						</li>
+						<li class="pic8 thumb horiz">
+							<a href="img/8.png">
+								<img src="img/thumbs/8.jpg" alt="Kasane" title="Kasane">
+							</a>
+						</li>
+						<li class="pic9 thumb sq">
+							<a href="img/9.png">
+								<img src="img/thumbs/9.jpg" class="sq" alt="Derpingtion" title="Derpingtion">
+							</a>
+						</li>
+						<li class="pic10 thumb port">
+							<a href="img/10.png">
+								<img src="img/thumbs/10.jpg" class="port" alt="Dickington" title="Dickington">
+							</a>
+						</li>
+						<li class="pic11 thumb horiz">
+							<a href="img/11.png">
+								<img src="img/thumbs/11.jpg" alt="Gus" title="Gus">
+							</a>
+						</li>
+						<li class="pic12 thumb horiz">
+							<a href="img/12.png">
+								<img src="img/thumbs/12.jpg" alt="Captive" title="Captive">
+							</a>
+						</li>
+						<li class="pic13 thumb horiz">
+							<a href="img/13.png">
+								<img src="img/thumbs/13.jpg" alt="Pheobechen" title="Pheobechen">
+							</a>
+						</li>
+						<li class="pic14 thumb horiz">
+							<a href="img/14.png">
+								<img src="img/thumbs/14.jpg" alt="&pound;5/kg" title="&pound;5/kg">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</article>
+</body>
