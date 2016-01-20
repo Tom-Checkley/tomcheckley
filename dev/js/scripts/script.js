@@ -4,6 +4,7 @@
 $(document).ready(function() {
 'use strict';
 	
+	$('.no-js-header').remove();
 
 	// // set height of main panels
 	// function screenTest() {
@@ -25,6 +26,20 @@ $(document).ready(function() {
 	// });
 
 
+	// modernizr background checks
+	var $bgPanel = $('div[class*="panel__background"]');
+	if($('html').hasClass('backgroundblendmode')) {
+		$bgPanel.css({'background-blend-mode': 'soft-light'});
+	} else if ($('html').hasClass('cssgradients') && $('html').hasClass('multiplebgs')) {
+		$bgPanel.each(function() {
+			var bgImage = $(this).css('background-image');
+			$(this).css({
+				'background': 'linear-gradient(rgba(11,13,20,.6), rgba(11,13,20,.6)), ' +
+											bgImage,
+				'background-size': 'cover'
+			});
+		});
+	}
 
 
 
@@ -106,8 +121,6 @@ $(document).ready(function() {
 		},time);
 	});
 
-
-
 	// parallax nav menu
 	$(window).on('scroll', function() {  
 		var navbarColor = '11,13,20',
@@ -143,28 +156,37 @@ $(document).ready(function() {
 	});
 
 	
-
 	// Contact button controls
 	$('.contact-menu').addClass('closed');
 	$('.contact').on('click', function() {
-		var navBgColor;
+
 		if($('.contact-menu').hasClass('closed')) {
-			navBgColor = $('.navbar').css('background-color');
-		}
-		if($('.contact-menu').hasClass('closed')) {
-			$('body').addClass('stop-scrolling').bind('touchmove', function(e){e.preventDefault();});
+			// $('body').addClass('stop-scrolling').bind('touchmove', function(e){e.preventDefault();});
 			$('.navbar').css('background-color', 'rgba(11,13,20,1)');
 			$('.arrow').removeClass('is-rotating-open').addClass('is-rotating-closed');
+			$('#contact').slideDown(600);
 			$('.contact-menu').removeClass('closed').addClass('open');
+			$('.contact .text').text("Close");
+
 		} else {
-			$('body').removeClass('stop-scrolling').unbind('touchmove');
-			$('.navbar').css({'background-color': navBgColor});
+			// $('body').removeClass('stop-scrolling').unbind('touchmove');
 			$('.arrow').removeClass('is-rotating-closed').addClass('is-rotating-open');
 			$('.contact-menu').removeClass('open').addClass('closed');
+			$('.contact .text').text("Contact Me");
+			$('#contact').slideUp(600);
 		}
-		$('.contact-menu').slideToggle(600);
+		
 	});
 
+	// reveal contact 
+	$("#contact a").on('click', function() {
+		$('#contact .details:not(.is-hidden)').each(function() {
+			$(this).addClass('is-hidden').css('display', 'none');
+		});
+		var details = $(this).find('.details');
+		
+		details.removeClass('is-hidden').css('display', 'block');
+	})
 
 
 	// change height of git logo to same as other portfolio imgs
@@ -215,12 +237,15 @@ $(document).ready(function() {
 		
 	});
 
-
+	// open new page window for links off site
 	$('.external-link').attr('target', '_blank');
 
 	$(document).ajaxComplete(function() {
 		$('.external-link').attr('target', '_blank');
 	});
+
+
+
 
 
 

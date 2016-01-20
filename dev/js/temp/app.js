@@ -10356,6 +10356,7 @@ return jQuery;
 $(document).ready(function() {
 'use strict';
 	
+	$('.no-js-header').remove();
 
 	// // set height of main panels
 	// function screenTest() {
@@ -10377,6 +10378,20 @@ $(document).ready(function() {
 	// });
 
 
+	// modernizr background checks
+	var $bgPanel = $('div[class*="panel__background"]');
+	if($('html').hasClass('backgroundblendmode')) {
+		$bgPanel.css({'background-blend-mode': 'soft-light'});
+	} else if ($('html').hasClass('cssgradients') && $('html').hasClass('multiplebgs')) {
+		$bgPanel.each(function() {
+			var bgImage = $(this).css('background-image');
+			$(this).css({
+				'background': 'linear-gradient(rgba(11,13,20,.6), rgba(11,13,20,.6)), ' +
+											bgImage,
+				'background-size': 'cover'
+			});
+		});
+	}
 
 
 
@@ -10458,8 +10473,6 @@ $(document).ready(function() {
 		},time);
 	});
 
-
-
 	// parallax nav menu
 	$(window).on('scroll', function() {  
 		var navbarColor = '11,13,20',
@@ -10495,28 +10508,37 @@ $(document).ready(function() {
 	});
 
 	
-
 	// Contact button controls
 	$('.contact-menu').addClass('closed');
 	$('.contact').on('click', function() {
-		var navBgColor;
+
 		if($('.contact-menu').hasClass('closed')) {
-			navBgColor = $('.navbar').css('background-color');
-		}
-		if($('.contact-menu').hasClass('closed')) {
-			$('body').addClass('stop-scrolling').bind('touchmove', function(e){e.preventDefault();});
+			// $('body').addClass('stop-scrolling').bind('touchmove', function(e){e.preventDefault();});
 			$('.navbar').css('background-color', 'rgba(11,13,20,1)');
 			$('.arrow').removeClass('is-rotating-open').addClass('is-rotating-closed');
+			$('#contact').slideDown(600);
 			$('.contact-menu').removeClass('closed').addClass('open');
+			$('.contact .text').text("Close");
+
 		} else {
-			$('body').removeClass('stop-scrolling').unbind('touchmove');
-			$('.navbar').css({'background-color': navBgColor});
+			// $('body').removeClass('stop-scrolling').unbind('touchmove');
 			$('.arrow').removeClass('is-rotating-closed').addClass('is-rotating-open');
 			$('.contact-menu').removeClass('open').addClass('closed');
+			$('.contact .text').text("Contact Me");
+			$('#contact').slideUp(600);
 		}
-		$('.contact-menu').slideToggle(600);
+		
 	});
 
+	// reveal contact 
+	$("#contact a").on('click', function() {
+		$('#contact .details:not(.is-hidden)').each(function() {
+			$(this).addClass('is-hidden').css('display', 'none');
+		});
+		var details = $(this).find('.details');
+		
+		details.removeClass('is-hidden').css('display', 'block');
+	})
 
 
 	// change height of git logo to same as other portfolio imgs
@@ -10567,7 +10589,7 @@ $(document).ready(function() {
 		
 	});
 
-
+	// open new page window for links off site
 	$('.external-link').attr('target', '_blank');
 
 	$(document).ajaxComplete(function() {
@@ -10576,11 +10598,14 @@ $(document).ready(function() {
 
 
 
+
+
+
 }); //end document.ready
 
 /*!
  * modernizr v3.2.0
- * Build http://modernizr.com/download?-backgroundblendmode-bgsizecover-cssanimations-csscalc-csstransforms-csstransitions-flexbox-shapes-svg-addtest-fnbind-printshiv-testprop-dontmin
+ * Build http://modernizr.com/download?-backgroundblendmode-bgsizecover-cssanimations-csscalc-csstransforms-csstransitions-details-flexbox-multiplebgs-shapes-svg-addtest-fnbind-printshiv-testprop-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -11984,6 +12009,102 @@ $(document).ready(function() {
   }
 
   ;
+
+  /**
+   * testStyles injects an element with style element and some CSS rules
+   *
+   * @memberof Modernizr
+   * @name Modernizr.testStyles
+   * @optionName Modernizr.testStyles()
+   * @optionProp testStyles
+   * @access public
+   * @function testStyles
+   * @param {string} rule - String representing a css rule
+   * @param {function} callback - A function that is used to test the injected element
+   * @param {number} [nodes] - An integer representing the number of additional nodes you want injected
+   * @param {string[]} [testnames] - An array of strings that are used as ids for the additional nodes
+   * @returns {boolean}
+   * @example
+   *
+   * `Modernizr.testStyles` takes a CSS rule and injects it onto the current page
+   * along with (possibly multiple) DOM elements. This lets you check for features
+   * that can not be detected by simply checking the [IDL](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Interface_development_guide/IDL_interface_rules).
+   *
+   * ```js
+   * Modernizr.testStyles('#modernizr { width: 9px; color: papayawhip; }', function(elem, rule) {
+   *   // elem is the first DOM node in the page (by default #modernizr)
+   *   // rule is the first argument you supplied - the CSS rule in string form
+   *
+   *   addTest('widthworks', elem.style.width === '9px')
+   * });
+   * ```
+   *
+   * If your test requires multiple nodes, you can include a third argument
+   * indicating how many additional div elements to include on the page. The
+   * additional nodes are injected as children of the `elem` that is returned as
+   * the first argument to the callback.
+   *
+   * ```js
+   * Modernizr.testStyles('#modernizr {width: 1px}; #modernizr2 {width: 2px}', function(elem) {
+   *   document.getElementById('modernizr').style.width === '1px'; // true
+   *   document.getElementById('modernizr2').style.width === '2px'; // true
+   *   elem.firstChild === document.getElementById('modernizr2'); // true
+   * }, 1);
+   * ```
+   *
+   * By default, all of the additional elements have an ID of `modernizr[n]`, where
+   * `n` is its index (e.g. the first additional, second overall is `#modernizr2`,
+   * the second additional is `#modernizr3`, etc.).
+   * If you want to have more meaningful IDs for your function, you can provide
+   * them as the fourth argument, as an array of strings
+   *
+   * ```js
+   * Modernizr.testStyles('#foo {width: 10px}; #bar {height: 20px}', function(elem) {
+   *   elem.firstChild === document.getElementById('foo'); // true
+   *   elem.lastChild === document.getElementById('bar'); // true
+   * }, 2, ['foo', 'bar']);
+   * ```
+   *
+   */
+
+  var testStyles = ModernizrProto.testStyles = injectElementWithStyles;
+  
+/*!
+{
+  "name": "details Element",
+  "caniuse": "details",
+  "property": "details",
+  "tags": ["elem"],
+  "builderAliases": ["elem_details"],
+  "authors": ["@mathias"],
+  "notes": [{
+    "name": "Mathias' Original",
+    "href": "http://mths.be/axh"
+  }]
+}
+!*/
+
+  Modernizr.addTest('details', function() {
+    var el = createElement('details');
+    var diff;
+
+    // return early if possible; thanks @aFarkas!
+    if (!('open' in el)) {
+      return false;
+    }
+
+    testStyles('#modernizr details{display:block}', function(node) {
+      node.appendChild(el);
+      el.innerHTML = '<summary>a</summary>b';
+      diff = el.offsetHeight;
+      el.open = true;
+      diff = diff != el.offsetHeight;
+    });
+
+
+    return diff;
+  });
+
 /*!
 {
   "name": "SVG",
@@ -12008,6 +12129,28 @@ Detects support for SVG in `<embed>` or `<object>` elements.
 */
 
   Modernizr.addTest('svg', !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
+
+/*!
+{
+  "name": "CSS Multiple Backgrounds",
+  "caniuse": "multibackgrounds",
+  "property": "multiplebgs",
+  "tags": ["css"]
+}
+!*/
+
+  // Setting multiple images AND a color on the background shorthand property
+  // and then querying the style.background property value for the number of
+  // occurrences of "url(" is a reliable method for detecting ACTUAL support for this!
+
+  Modernizr.addTest('multiplebgs', function() {
+    var style = createElement('a').style;
+    style.cssText = 'background:url(https://),url(https://),red url(https://)';
+
+    // If the UA supports multiple backgrounds, there should be three occurrences
+    // of the string "url(" in the return value for elemStyle.background
+    return (/(url\s*\(.*?){3}/).test(style.background);
+  });
 
 
   /**

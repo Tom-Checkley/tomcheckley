@@ -39,9 +39,17 @@
 
 @each $bgImg in drops, brandon, wills, clifton {
 	.panel__background--#{$bgImg} {
-		background-image: url(../img/backgrounds/sm-#{$bgImg}.jpg);
-		@include mq(large) {
-			background-image: url(../img/backgrounds/#{$bgImg}.jpg);
+		.multiplebgs & {
+			background-image: url(../img/backgrounds/sm-#{$bgImg}.jpg);
+			@include mq(large) {
+				background-image: url(../img/backgrounds/#{$bgImg}.jpg);
+			}
+			@media(orientation: landscape) {
+				background-image: url(../img/backgrounds/#{$bgImg}.jpg);
+			}
+			@media(orientation: portrait) {
+				background-image: url(../img/backgrounds/sm-#{$bgImg}.jpg);
+			}
 		}
 		@extend %backgrounds;
 	}

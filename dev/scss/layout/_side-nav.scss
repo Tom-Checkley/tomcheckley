@@ -35,9 +35,7 @@
 				position: absolute;
 				left: 500px;
 				.flexbox & {
-					display: flex;
-					flex-direction: column;
-					justify-content: space-around;
+					@extend %flex-col-space-around;
 				}
 				li {
 					a{

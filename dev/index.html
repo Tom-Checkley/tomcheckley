@@ -2,9 +2,9 @@
 <html class="no-js">
 <head>
 	<title>Tom Checkley | Web Development</title>
-
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<meta name="author" content="">
+	<meta name="author" content="Tom Checkley">
 	<meta name="description" content="Portfolio for Tom Checkley. Bristol based front-end web developer. Available for freelance work or full time employment.">	
 	<meta name="keywords" content="HTML5 CSS Javascript JQuery Website Design Development Developer Bristol Front-end UI UX freelance agency">
 
@@ -28,11 +28,17 @@
 </head>
 	
 <body>
-
+<!-- No js block -->
+<div class="no-js-header">
+	<h1>Your browser currently has Javascript disabled.</h1>
+	<p>To get the most from this site, go to your settings and enable Javascript</p>
+</div>
 <!-- overlay for ajax -->
 <div id="overlay__background"></div>
 <div id="overlay">
-	<button>Close <span class="icon-cancel-circle"></span></button>
+	<div class="close-holder">
+		<button>Close <span class="icon-cancel-circle"></span></button>
+	</div>
 	<div class="overlay__content">
 		<div class="spinner">
 			<span class="icon-spinner9"></span>
@@ -188,7 +194,7 @@
 					<div class="content">
 						<h2>Treehouse</h2>
 						<p>Check out my Treehouse profile by clicking the link below.</p>
-						<a href="https://teamtreehouse.com/tomcheckley">
+						<a href="https://teamtreehouse.com/tomcheckley" class="external-link">
 							<img src="img/logos/treehouse.png" alt="Team Treehouse logo">
 						</a>
 					</div>
@@ -267,42 +273,43 @@
 </div> <!-- End main wrapper -->
 
 <!-- contact page -->
-<div class="contact-menu panel">
+<div id="contact" class="contact-menu panel">
 	<div class="wrapper">
+		<h1>Contact Me</h1>
 		<ul>
 			<li>
 				<a href="tel:00447817514889">
 					<span class="icon-mobile"></span>
-					<span class="is-hidden">07817514889</span>
+					<span class="is-hidden details">07817514889</span>
 				</a>			
 			</li>
 			<li>
 				<a href="mailto:tom_checkley@hotmail.com">
 					<span class="icon-mail"></span>
-					<span class="is-hidden">tom_checkley@hotmail.com</span>
+					<span class="is-hidden details">tom_checkley@hotmail.com</span>
 				</a>
 			</li>
 			<li>
-				<a href="http://www.facebook.com/tomcheckleywebdeveloper">
+				<a href="http://www.facebook.com/tomcheckleywebdeveloper" class="external-link">
 					<span class="icon-facebook2"></span>
-					<span class="is-hidden">www.facebook.com/tomcheckleywebdeveloper</span>
+					<span class="is-hidden details">www.facebook.com/tomcheckleywebdeveloper</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="https://twitter.com/TomCheckley" class="external-link">
 					<span class="icon-twitter2"></span>
-					<span class="is-hidden">@tomcheckley</span>
+					<span class="is-hidden details">@tomcheckley</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="https://uk.linkedin.com/in/tomcheckley" class="external-link">
 					<span class="icon-linkedin"></span>
 				</a>
 			</li>
 			<li>
-				<a href="https://github.com/Tom-Checkley">
+				<a href="https://github.com/Tom-Checkley" class="external-link">
 					<span class="icon-github"></span>
-					<span class="is-hidden">Tom-Checkley</span>
+					<span class="is-hidden details">Tom-Checkley</span>
 				</a>
 			</li>
 		</ul>

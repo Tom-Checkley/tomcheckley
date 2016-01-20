@@ -8,8 +8,19 @@
 	.bgsizecover & {
 		background-size: cover;
 	}
-	.backgroundblendmode & {
+	
+	.backgroundblendmode &{
 		background-blend-mode: soft-light;
 	}
 }
 
+%flex-col-space-around {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+%dark-bg-light-txt {
+	background-color: $primary-color;
+	color: $primary-bg-color;
+}

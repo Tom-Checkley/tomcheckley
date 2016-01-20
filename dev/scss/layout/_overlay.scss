@@ -13,23 +13,32 @@
 	position: absolute;
 	top: 0;
 	width: 100%;
+	height: 100%;
 	min-height: 100vh;
 	color: $primary-bg-color;
 	display: none;
-	button {
-		position: absolute;
-		right: 0;
-		width: auto;
+	.close-holder {
+		position: fixed;
+		top: 0;
+		background-color: $primary-color;
+		height: 20px;
+		width: 100%;
+		button {
+			position: absolute;
+			right: 0;
+			width: auto;
+		}
 	}
 	.overlay__content {
-		@extend %max-height-width;
+		// height: calc(100% - 32px);
+		margin-top: em(32px);
 		.flexbox & {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
+			@extend %flex-col-space-around;
 			align-items: center;
 		}
-		
+		.ajax-container {
+			align-self: center;
+		}
 		.spinner {
 			span { 
 				font-size: em(48px);
@@ -42,46 +51,75 @@
 				}
 			}
 		}
-		img {
-			display: block;
-			width: 100%;
-		}
 		a {
-			background-color: rgba($primary-bg-color, 0.7);
-			border-radius: 8px;
-			width: 40%;
-			display: inline-block;
-			text-align: center;
-			font-size: 16px;
-			line-height: 20px;
-			padding: 6px;
-			&:hover {
-				background-color: $primary-bg-color;
-			}
-		}
-		blockquote {
-			background-color: $primary-bg-color;
-			color: $primary-color;
-			position: relative;
-			padding: em(32px);
-			border-radius: 8px;
-			p {
-				font-size: em(14px);
-			}
-			span {
-				height: em(60px);
-				font-size: em(60px);
-				font-family: times, serif;
-				margin: 0;
-				padding: 0;
-
-				&.open-quote {
-					margin: -16px 8px 8px 0;
-					float: left;
+				background-color: rgba($primary-bg-color, 0.7);
+				border-radius: 8px;
+				width: 40%;
+				@include mq(medium) {
+					width: 30%;
 				}
-				&.close-quote {
-					margin: 0 0 0 8px;
-					float: right;
+				display: inline-block;
+				text-align: center;
+				font-size: 16px;
+				line-height: 20px;
+				padding: 6px;
+				&:hover {
+					background-color: $primary-bg-color;
+				}
+			}
+		.content {
+			height: 100%;
+			.flexbox & {
+				@extend %flex-col-space-around;
+				align-self: stretch;
+			}
+
+			img {
+				display: block;
+				@extend .centered;
+				width: 90%;
+				@include mq(medium) {
+					width: 50%;
+				}
+				@include mq(large) {
+					width: 80%;
+				}
+				&.page--middle {
+					align-self: center;
+				}
+			}
+			.buttons {
+				width: 100%;
+				.flexbox & {
+					display: flex;
+					justify-content: space-around;
+				}
+			}
+			blockquote {
+				background-color: $primary-bg-color;
+				color: $primary-color;
+				padding: em(32px);
+				border-radius: 8px;
+				margin: em(24px) 0;
+				width: 100%;
+				p {
+					font-size: em(14px);
+				}
+				span {
+					height: 60px;
+					font-size: 60px;
+					font-family: times, serif;
+					margin: 0;
+					padding: 0;
+
+					&.open-quote {
+						margin: -16px 8px 8px 0;
+						float: left;
+					}
+					&.close-quote {
+						margin: -8px 0 0 8px;
+						float: right;
+					}
 				}
 			}
 		}

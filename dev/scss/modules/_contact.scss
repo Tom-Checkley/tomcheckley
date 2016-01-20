@@ -1,16 +1,30 @@
 .js {
-	.contact-menu {
+	#contact {
 		position: fixed;
 		top: 0;
 		padding-top: 40px;
 		z-index: 500;
 		background-color: $primary-bg-color;
 		display: none;
+		width: 100%;
 		.wrapper {
 			height: calc(100% - 40px);
-			a {
-				span {
-					font-size: em(36px);
+			ul {
+				height: 100%;
+				.flexbox {
+					@extend %flex-col-space-around;
+				}
+				li {
+					padding: 15px 0;
+					text-align: center;
+					a {
+						span {
+							font-size: em(32px);
+						}
+						.details {
+							font-size: em(24px);
+						}
+					}
 				}
 			}
 		}

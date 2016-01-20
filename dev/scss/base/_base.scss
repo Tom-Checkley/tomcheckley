@@ -5,9 +5,8 @@ body {
 	@extend %max-height-width;
 	color: $primary-color;
 	font-family: 'alcubierreregular', 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
-	width: 100%;
+	font-size: $base__font-size;
 	box-sizing: border-box;
-	// height: 100%;
 }
 
 h1 {
