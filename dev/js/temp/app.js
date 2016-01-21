@@ -10538,7 +10538,7 @@ $(document).ready(function() {
 		var details = $(this).find('.details');
 		
 		details.removeClass('is-hidden').css('display', 'block');
-	})
+	});
 
 
 	// change height of git logo to same as other portfolio imgs

@@ -508,13 +508,24 @@ img {
   .backgroundblendmode .panel__background--drops, .backgroundblendmode .panel__background--brandon, .backgroundblendmode .panel__background--wills, .backgroundblendmode .panel__background--clifton {
     background-blend-mode: soft-light; }
 
-.flexbox .side-nav__wrapper nav ul, .flexbox #overlay .overlay__content, .flexbox #overlay .overlay__content .content, .flexbox #home .panel__content, .js #contact .wrapper ul .flexbox {
+.flexbox .side-nav__wrapper nav ul, .flexbox #overlay .overlay__content, .flexbox #overlay .overlay__content .content, .flexbox #home .panel__content, .flexbox .js #contact .wrapper ul {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+
+.flexbox .js #contact .wrapper ul {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
           justify-content: space-around; }
@@ -1099,6 +1110,7 @@ img {
         padding: 15px 0;
         text-align: center; }
         .js #contact .wrapper ul li a span {
+          display: block;
           font-size: 2em; }
         .js #contact .wrapper ul li a .details {
           font-size: 1.5em; }
@@ -1215,7 +1227,7 @@ img {
   left: -50px;
   transition: .6s; }
 
-.is-hidden {
+.is-hidden, .js #contact .wrapper ul li a .details {
   display: none; }
 
 .is-hidden-js {

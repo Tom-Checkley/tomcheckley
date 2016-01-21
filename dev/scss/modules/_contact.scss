@@ -11,18 +11,23 @@
 			height: calc(100% - 40px);
 			ul {
 				height: 100%;
-				.flexbox {
+				.flexbox & {
 					@extend %flex-col-space-around;
+					@media(orientation: landscape) {
+						@extend %flex-row-space-around;
+					}
 				}
 				li {
 					padding: 15px 0;
 					text-align: center;
 					a {
 						span {
+							display: block;
 							font-size: em(32px);
 						}
 						.details {
 							font-size: em(24px);
+							@extend .is-hidden;
 						}
 					}
 				}
