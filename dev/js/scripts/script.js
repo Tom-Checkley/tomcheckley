@@ -30,7 +30,7 @@ $(document).ready(function() {
 	var $bgPanel = $('div[class*="panel__background"]');
 	if($('html').hasClass('backgroundblendmode')) {
 		$bgPanel.css({'background-blend-mode': 'soft-light'});
-	} else if ($('html').hasClass('cssgradients') && $('html').hasClass('multiplebgs')) {
+	} else if ($('html').hasClass('no-backgroundblendmode') && $('html').hasClass('multiplebgs')) {
 		$bgPanel.each(function() {
 			var bgImage = $(this).css('background-image');
 			$(this).css({
