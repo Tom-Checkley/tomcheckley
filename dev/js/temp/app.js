@@ -10578,8 +10578,12 @@ $(document).ready(function() {
 		$spinner.fadeIn(100);
 		var content = $(this).attr('href');
 		$('#overlay, #overlay__background').show();
-		$holder.load(content, function() {
+		$holder.load(content, function(response, status, xhr) {
 			$spinner.fadeOut(100);
+			if(status == 'error') {
+				var msg = 'Sorry there was an error loading the requested content: ';
+				$holder.html(msg + xhr.status + ' ' + xhr.statusText);
+			}
 		});
 
 	});
