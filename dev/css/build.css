@@ -1137,7 +1137,10 @@ img {
           font-size: 2em; }
         #contact .wrapper ul li a .details {
           font-size: 1.5em; }
-          @media (orientation: landscape) {
+          @media (max-width: 520px) {
+            #contact .wrapper ul li a .details {
+              font-size: 1em; } }
+          @media (orientation: landscape) and (max-width: 520px) {
             #contact .wrapper ul li a .details {
               font-size: 1em; } }
 

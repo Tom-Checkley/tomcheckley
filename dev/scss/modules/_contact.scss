@@ -38,7 +38,10 @@
 					.details {
 						font-size: em(24px);
 						@extend .is-hidden;
-						@media(orientation: landscape) {
+						@media(max-width: $breakpoint-md) {
+							font-size: em(16px);
+						}
+						@media(orientation: landscape) and (max-width: $breakpoint-md) {
 							font-size: em(16px);
 						}
 					}
