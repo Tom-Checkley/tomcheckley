@@ -23,6 +23,7 @@
 		background-color: $primary-color;
 		height: 20px;
 		width: 100%;
+		margin-bottom: 36px;
 		button {
 			position: absolute;
 			right: 0;
@@ -30,24 +31,30 @@
 		}
 	}
 	.overlay__content {
-		// height: calc(100% - 32px);
-		margin-top: em(32px);
-		.flexbox & {
-			@extend %flex-col-space-around;
-			align-items: center;
-		}
+		margin-top: em(36px);
 		.ajax-container {
-			align-self: center;
+			padding: em(32px) 0;
 		}
 		.spinner {
-			span { 
-				font-size: em(48px);
-				position: absolute;
-				.cssanimations & {
-					animation-duration: 1s;
-					animation-name: rotating;
-				  animation-iteration-count: infinite;
-				  animation-timing-function: linear;
+			height: 100vh;
+			position: absolute;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			@include e(holder) {
+				width: 48px;
+				height: 48px;
+				align-self: center;
+				span { 
+					display: block;
+					font-size: em(48px);
+					position: absolute;
+					.cssanimations & {
+						animation-duration: 1s;
+						animation-name: rotating;
+					  animation-iteration-count: infinite;
+					  animation-timing-function: linear;
+					}
 				}
 			}
 		}

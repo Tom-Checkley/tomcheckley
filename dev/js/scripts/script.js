@@ -223,11 +223,11 @@ $(document).ready(function() {
 		$('.main-wrapper').addClass('stop-scrolling').bind('touchmove', function(e){e.preventDefault();});
 		event.preventDefault();
 		$holder.empty();
-		$spinner.show();
+		$spinner.fadeIn(100);
 		var content = $(this).attr('href');
 		$('#overlay, #overlay__background').show();
 		$holder.load(content);
-		$spinner.hide();
+		$spinner.fadeOut(100);
 
 	});
 

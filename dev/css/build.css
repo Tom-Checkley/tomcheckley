@@ -508,7 +508,7 @@ img {
   .backgroundblendmode .panel__background--drops, .backgroundblendmode .panel__background--brandon, .backgroundblendmode .panel__background--wills, .backgroundblendmode .panel__background--clifton {
     background-blend-mode: soft-light; }
 
-.flexbox .side-nav__wrapper nav ul, .flexbox #overlay .overlay__content, .flexbox #overlay .overlay__content .content, .flexbox #home .panel__content, .flexbox #contact .wrapper ul {
+.flexbox .side-nav__wrapper nav ul, .flexbox #overlay .overlay__content .content, .flexbox #home .panel__content, .flexbox #contact .wrapper ul {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -925,33 +925,45 @@ img {
     top: 0;
     background-color: #0b0d14;
     height: 20px;
-    width: 100%; }
+    width: 100%;
+    margin-bottom: 36px; }
     #overlay .close-holder button {
       position: absolute;
       right: 0;
       width: auto; }
   #overlay .overlay__content {
-    margin-top: 2em; }
-    .flexbox #overlay .overlay__content {
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center; }
+    margin-top: 2.25em; }
     #overlay .overlay__content .ajax-container {
-      -webkit-align-self: center;
-          -ms-flex-item-align: center;
-              align-self: center; }
-    #overlay .overlay__content .spinner span {
-      font-size: 3em;
-      position: absolute; }
-      .cssanimations #overlay .overlay__content .spinner span {
-        -webkit-animation-duration: 1s;
-                animation-duration: 1s;
-        -webkit-animation-name: rotating;
-                animation-name: rotating;
-        -webkit-animation-iteration-count: infinite;
-                animation-iteration-count: infinite;
-        -webkit-animation-timing-function: linear;
-                animation-timing-function: linear; }
+      padding: 2em 0; }
+    #overlay .overlay__content .spinner {
+      height: 100vh;
+      position: absolute;
+      width: 100%;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      #overlay .overlay__content .spinner__holder {
+        width: 48px;
+        height: 48px;
+        -webkit-align-self: center;
+            -ms-flex-item-align: center;
+                align-self: center; }
+        #overlay .overlay__content .spinner__holder span {
+          display: block;
+          font-size: 3em;
+          position: absolute; }
+          .cssanimations #overlay .overlay__content .spinner__holder span {
+            -webkit-animation-duration: 1s;
+                    animation-duration: 1s;
+            -webkit-animation-name: rotating;
+                    animation-name: rotating;
+            -webkit-animation-iteration-count: infinite;
+                    animation-iteration-count: infinite;
+            -webkit-animation-timing-function: linear;
+                    animation-timing-function: linear; }
     #overlay .overlay__content a {
       background-color: rgba(249, 249, 249, 0.7);
       border-radius: 8px;
