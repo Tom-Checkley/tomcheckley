@@ -10543,6 +10543,17 @@ $(document).ready(function() {
 		details.removeClass('is-hidden').css('display', 'block');
 	});
 
+	$("#contact a").on('mouseenter', function() {
+		$('#contact .details:not(.is-hidden)').each(function() {
+			$(this).addClass('is-hidden').css('display', 'none');
+		});
+		var details = $(this).find('.details');
+		
+		details.removeClass('is-hidden').css('display', 'block');
+	});
+
+
+
 
 	// change height of git logo to same as other portfolio imgs
 
