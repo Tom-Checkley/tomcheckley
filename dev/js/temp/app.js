@@ -10578,8 +10578,9 @@ $(document).ready(function() {
 		$spinner.fadeIn(100);
 		var content = $(this).attr('href');
 		$('#overlay, #overlay__background').show();
-		$holder.load(content);
-		$spinner.fadeOut(100);
+		$holder.load(content, function() {
+			$spinner.fadeOut(100);
+		});
 
 	});
 
