@@ -358,7 +358,7 @@ th {
   margin-right: auto; }
 
 html,
-body, .panel__background--drops, .panel__background--brandon, .panel__background--wills, .panel__background--clifton, #home .panel__content {
+body, .panel__background--drops, .panel__background--brandon, .panel__background--wills, .panel__background--clifton, #home .panel__content, #contact .wrapper ul {
   height: 100%;
   width: 100%; }
 
@@ -508,24 +508,13 @@ img {
   .backgroundblendmode .panel__background--drops, .backgroundblendmode .panel__background--brandon, .backgroundblendmode .panel__background--wills, .backgroundblendmode .panel__background--clifton {
     background-blend-mode: soft-light; }
 
-.flexbox .side-nav__wrapper nav ul, .flexbox #overlay .overlay__content, .flexbox #overlay .overlay__content .content, .flexbox #home .panel__content, .flexbox .js #contact .wrapper ul {
+.flexbox .side-nav__wrapper nav ul, .flexbox #overlay .overlay__content, .flexbox #overlay .overlay__content .content, .flexbox #home .panel__content, .flexbox #contact .wrapper ul {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around; }
-
-.flexbox .js #contact .wrapper ul {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
           justify-content: space-around; }
@@ -1094,7 +1083,7 @@ img {
   #profile p {
     text-align: left; }
 
-.js #contact {
+#contact {
   position: fixed;
   top: 0;
   padding-top: 40px;
@@ -1102,18 +1091,43 @@ img {
   background-color: #f9f9f9;
   display: none;
   width: 100%; }
-  .js #contact .wrapper {
+  #contact .wrapper {
     height: calc(100% - 40px); }
-    .js #contact .wrapper ul {
-      height: 100%; }
-      .js #contact .wrapper ul li {
+    #contact .wrapper ul {
+      list-style: none; }
+      @media (orientation: portrait) and (max-width: 520px) {
+        .flexbox #contact .wrapper ul {
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-flex-direction: column;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          -webkit-justify-content: space-around;
+              -ms-flex-pack: distribute;
+                  justify-content: space-around; } }
+      @media (orientation: landscape) and (max-width: 768px) {
+        .flexbox #contact .wrapper ul {
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-flex-direction: row;
+              -ms-flex-direction: row;
+                  flex-direction: row;
+          -webkit-justify-content: space-around;
+              -ms-flex-pack: distribute;
+                  justify-content: space-around; } }
+      #contact .wrapper ul li {
         padding: 15px 0;
         text-align: center; }
-        .js #contact .wrapper ul li a span {
+        #contact .wrapper ul li a span {
           display: block;
           font-size: 2em; }
-        .js #contact .wrapper ul li a .details {
+        #contact .wrapper ul li a .details {
           font-size: 1.5em; }
+          @media (orientation: landscape) {
+            #contact .wrapper ul li a .details {
+              font-size: 1em; } }
 
 #skills {
   background-color: #0a0c12; }
@@ -1227,7 +1241,7 @@ img {
   left: -50px;
   transition: .6s; }
 
-.is-hidden, .js #contact .wrapper ul li a .details {
+.is-hidden, #contact .wrapper ul li a .details {
   display: none; }
 
 .is-hidden-js {

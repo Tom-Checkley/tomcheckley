@@ -10526,6 +10526,9 @@ $(document).ready(function() {
 			$('.contact-menu').removeClass('open').addClass('closed');
 			$('.contact .text').text("Contact Me");
 			$('#contact').slideUp(600);
+			$('#contact .details:not(.is-hidden)').each(function() {
+				$(this).addClass('is-hidden').css('display', 'none');
+			});
 		}
 		
 	});

@@ -1,33 +1,43 @@
-.js {
-	#contact {
-		position: fixed;
-		top: 0;
-		padding-top: 40px;
-		z-index: 500;
-		background-color: $primary-bg-color;
-		display: none;
-		width: 100%;
-		.wrapper {
-			height: calc(100% - 40px);
-			ul {
-				height: 100%;
-				.flexbox & {
-					@extend %flex-col-space-around;
-					@media(orientation: landscape) {
-						@extend %flex-row-space-around;
-					}
+
+#contact {
+	position: fixed;
+	top: 0;
+	padding-top: 40px;
+	z-index: 500;
+	background-color: $primary-bg-color;
+	display: none;
+	width: 100%;
+	.wrapper {
+		height: calc(100% - 40px);
+		ul {
+			@extend %max-height-width;
+			list-style: none;
+			.flexbox & { 
+				@extend %flex-col-space-around;
+				@media(orientation: portrait) and (max-width: $breakpoint-md) {
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
 				}
-				li {
-					padding: 15px 0;
-					text-align: center;
-					a {
-						span {
-							display: block;
-							font-size: em(32px);
-						}
-						.details {
-							font-size: em(24px);
-							@extend .is-hidden;
+				@media(orientation: landscape) and (max-width: $breakpoint-lg) {
+					display: flex;
+					flex-direction: row;
+					justify-content: space-around;
+				}
+			}
+			li {
+				padding: 15px 0;
+				text-align: center;
+				a {
+					span {
+						display: block;
+						font-size: em(32px);
+					}
+					.details {
+						font-size: em(24px);
+						@extend .is-hidden;
+						@media(orientation: landscape) {
+							font-size: em(16px);
 						}
 					}
 				}
