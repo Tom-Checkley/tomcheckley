@@ -161,7 +161,7 @@ $(document).ready(function() {
 	$('.contact').on('click', function() {
 
 		if($('.contact-menu').hasClass('closed')) {
-			// $('body').addClass('stop-scrolling').bind('touchmove', function(e){e.preventDefault();});
+			$('body').addClass('stop-scrolling').bind('touchmove', function(e){e.preventDefault();});
 			$('.navbar').css('background-color', 'rgba(11,13,20,1)');
 			$('.arrow').removeClass('is-rotating-open').addClass('is-rotating-closed');
 			$('#contact').slideDown(600);
@@ -169,7 +169,7 @@ $(document).ready(function() {
 			$('.contact .text').text("Close");
 
 		} else {
-			// $('body').removeClass('stop-scrolling').unbind('touchmove');
+			$('body').removeClass('stop-scrolling').unbind('touchmove');
 			$('.arrow').removeClass('is-rotating-closed').addClass('is-rotating-open');
 			$('.contact-menu').removeClass('open').addClass('closed');
 			$('.contact .text').text("Contact Me");
