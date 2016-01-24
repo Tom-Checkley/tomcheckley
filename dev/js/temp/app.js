@@ -10511,7 +10511,6 @@ $(document).ready(function() {
 	// Contact button controls
 	$('.contact-menu').addClass('closed');
 	$('.contact').on('click', function() {
-
 		if($('.contact-menu').hasClass('closed')) {
 			$('body').addClass('stop-scrolling').bind('touchmove', function(e){e.preventDefault();});
 			$('.navbar').css('background-color', 'rgba(11,13,20,1)');

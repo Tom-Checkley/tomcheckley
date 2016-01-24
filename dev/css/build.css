@@ -903,10 +903,10 @@ img {
 
 #overlay__background {
   position: fixed;
-  top: 0;
+  top: -50px;
   bottom: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh + 100px);
   background-color: rgba(11, 13, 20, 0.98);
   display: none;
   z-index: 2000; }
@@ -1265,6 +1265,8 @@ img {
 .stop-scrolling {
   position: absolute;
   height: 100%;
+  top: 0;
+  width: 100%;
   overflow: hidden; }
 
 .no-js .is-hidden-js {
