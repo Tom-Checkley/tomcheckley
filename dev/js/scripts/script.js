@@ -176,6 +176,7 @@ $(document).ready(function() {
 			$('#contact .details:not(.is-hidden)').each(function() {
 				$(this).addClass('is-hidden').css('display', 'none');
 			});
+			$('.contact span').css('color', '#f9f9f9');
 		}
 		
 	});
@@ -241,6 +242,13 @@ $(document).ready(function() {
 			if(status == 'error') {
 				var msg = 'Sorry there was an error loading the requested content: ';
 				$holder.html(msg + xhr.status + ' ' + xhr.statusText);
+			}
+			var height = $('#ajax-container').height();
+			var screenHeight = window.innerHeight;
+			if(height < screenHeight && window.innerWidth >= 1100) {
+				$('#ajax-container div[class*="grid__col"').css('height', '100vh'); 
+			} else if(height > screenHeight && window.innerWidth >= 1100){
+				$('#ajax-container div[class*="grid__col"').css('height', height); 
 			}
 		});
 
