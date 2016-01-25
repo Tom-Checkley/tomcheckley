@@ -26,6 +26,12 @@
 	justify-content: space-around;
 }
 
+%flex-col-space-between {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 %dark-bg-light-txt {
 	background-color: $primary-color;
 	color: $primary-bg-color;

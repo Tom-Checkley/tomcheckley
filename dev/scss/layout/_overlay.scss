@@ -58,6 +58,9 @@
 				}
 			}
 		}
+		h1 {
+			margin: 0;
+		}
 		a {
 				background-color: rgba($primary-bg-color, 0.7);
 				border-radius: 8px;
@@ -72,6 +75,17 @@
 				padding: 6px;
 				&:hover {
 					background-color: $primary-bg-color;
+				}
+				&.inline {
+					display: inline;
+					text-decoration: underline;
+					font-size: inherit;
+					padding: 0;
+					background-color: inherit;
+					color: inherit;
+					&:hover {
+						color: $highlight-color;
+					}
 				}
 			}
 		.content {

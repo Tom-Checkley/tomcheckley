@@ -964,6 +964,8 @@ img {
                     animation-iteration-count: infinite;
             -webkit-animation-timing-function: linear;
                     animation-timing-function: linear; }
+    #overlay .overlay__content h1 {
+      margin: 0; }
     #overlay .overlay__content a {
       background-color: rgba(249, 249, 249, 0.7);
       border-radius: 8px;
@@ -978,6 +980,15 @@ img {
           width: 30%; } }
       #overlay .overlay__content a:hover {
         background-color: #f9f9f9; }
+      #overlay .overlay__content a.inline {
+        display: inline;
+        text-decoration: underline;
+        font-size: inherit;
+        padding: 0;
+        background-color: inherit;
+        color: inherit; }
+        #overlay .overlay__content a.inline:hover {
+          color: #00bfc9; }
     #overlay .overlay__content .content {
       height: 100%; }
       .flexbox #overlay .overlay__content .content {
