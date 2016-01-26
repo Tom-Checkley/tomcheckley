@@ -1,4 +1,4 @@
-/*jslint browser: true*/
+/*global jslint browser: true*/
 /*global $*/
 
 $(document).ready(function() {
@@ -224,6 +224,14 @@ $(document).ready(function() {
 	});
 
 	$(window).resize();
+
+
+
+	window.onpopstate = function(event)
+{
+    alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+};
+
 
 
 	// ajax for portfolio
