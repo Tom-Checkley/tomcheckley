@@ -997,6 +997,10 @@ img {
                 align-self: stretch; }
       #overlay .overlay__content .content img {
         display: block;
+        height: auto;
+        -webkit-align-self: center;
+            -ms-flex-item-align: center;
+                align-self: center;
         width: 90%; }
         @media (min-width: 521px) {
           #overlay .overlay__content .content img {

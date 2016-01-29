@@ -97,6 +97,8 @@
 
 			img {
 				display: block;
+				height: auto;
+				align-self: center;
 				@extend .centered;
 				width: 90%;
 				@include mq(medium) {
