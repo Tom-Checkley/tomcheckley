@@ -10568,7 +10568,7 @@ $(document).ready(function() {
 	adjustLogoHeight();
 
 	var timeout;
-	$(window).resize(function() {
+	$(window).on('resize',function() {
 		clearTimeout(timeout);
 		timeout = setTimeout(function() {
 			adjustLogoHeight();
@@ -10638,8 +10638,8 @@ $(document).ready(function() {
 }); //end document.ready
 
 /*!
- * modernizr v3.2.0
- * Build http://modernizr.com/download?-backgroundblendmode-bgsizecover-cssanimations-csscalc-csstransforms-csstransitions-details-flexbox-multiplebgs-shapes-svg-addtest-fnbind-printshiv-testprop-dontmin
+ * modernizr v3.3.1
+ * Build http://modernizr.com/download?-backgroundblendmode-bgsizecover-cssanimations-csscalc-csstransforms-csstransitions-details-flexbox-multiplebgs-shapes-svg-addtest-fnbind-printshiv-setclasses-testprop-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -10675,15 +10675,15 @@ $(document).ready(function() {
 
   var ModernizrProto = {
     // The current version, dummy
-    _version: '3.2.0',
+    _version: '3.3.1',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
     _config: {
-      'classPrefix' : '',
-      'enableClasses' : true,
-      'enableJSClass' : true,
-      'usePrefixes' : true
+      'classPrefix': '',
+      'enableClasses': true,
+      'enableJSClass': true,
+      'usePrefixes': true
     },
 
     // Queue of tests
@@ -10704,11 +10704,11 @@ $(document).ready(function() {
     },
 
     addTest: function(name, fn, options) {
-      tests.push({name : name, fn : fn, options : options});
+      tests.push({name: name, fn: fn, options: options});
     },
 
     addAsyncTest: function(fn) {
-      tests.push({name : null, fn : fn});
+      tests.push({name: null, fn: fn});
     }
   };
 
@@ -11698,7 +11698,7 @@ $(document).ready(function() {
    */
 
   var modElem = {
-    elem : createElement('modernizr')
+    elem: createElement('modernizr')
   };
 
   // Clean up this element
@@ -11709,7 +11709,7 @@ $(document).ready(function() {
   
 
   var mStyle = {
-    style : modElem.elem.style
+    style: modElem.elem.style
   };
 
   // kill ref for gc, must happen before mod.elem is removed, so we unshift on to
@@ -11849,7 +11849,7 @@ $(document).ready(function() {
 
   // Accepts a list of property names and a single value
   // Returns `undefined` if native detection not available
-  function nativeTestProps (props, value) {
+  function nativeTestProps(props, value) {
     var i = props.length;
     // Start with the JS API: http://www.w3.org/TR/css3-conditional/#the-css-interface
     if ('CSS' in window && 'supports' in window.CSS) {
@@ -12113,7 +12113,7 @@ $(document).ready(function() {
   "authors": ["@mathias"],
   "notes": [{
     "name": "Mathias' Original",
-    "href": "http://mths.be/axh"
+    "href": "https://mathiasbynens.be/notes/html5-details-jquery#comment-35"
   }]
 }
 !*/
@@ -12235,6 +12235,12 @@ Detects support for SVG in `<embed>` or `<object>` elements.
   /**
    * testDOMProps is a generic DOM property test; if a browser supports
    *   a certain property, it won't return undefined for it.
+   *
+   * @access private
+   * @function testDOMProps
+   * @param {array.<string>} props - An array of properties to test for
+   * @param {object} obj - An object or Element you want to use to test the parameters again
+   * @param {boolean|object} elem - An Element to bind the property lookup again. Use `false` to prevent the check
    */
   function testDOMProps(props, obj, elem) {
     var item;
@@ -12269,6 +12275,14 @@ Detects support for SVG in `<embed>` or `<object>` elements.
    * We specify literally ALL possible (known and/or likely) properties on
    * the element including the non-vendor prefixed one, for forward-
    * compatibility.
+   *
+   * @access private
+   * @function testPropsAll
+   * @param {string} prop - A string of the property to test for
+   * @param {string|object} [prefixed] - An object to check the prefixed properties on. Use a string to skip
+   * @param {HTMLElement|SVGElement} [elem] - An element used to test the property and value against
+   * @param {string} [value] - A string of a css value
+   * @param {boolean} [skipValueTest] - An boolean representing if you want to test if value sticks when set
    */
   function testPropsAll(prop, prefixed, elem, value, skipValueTest) {
 
@@ -12332,7 +12346,7 @@ Detects support for SVG in `<embed>` or `<object>` elements.
    * ```
    */
 
-  function testAllProps (prop, value, skipValueTest) {
+  function testAllProps(prop, value, skipValueTest) {
     return testPropsAll(prop, undefined, undefined, value, skipValueTest);
   }
   ModernizrProto.testAllProps = testAllProps;
@@ -12368,7 +12382,7 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
   "warnings": ["Android < 4 will pass this test, but can only animate a single property at a time"],
   "notes": [{
     "name" : "Article: 'Dispelling the Android CSS animation myths'",
-    "href": "http://goo.gl/OGw5Gm"
+    "href": "https://goo.gl/OGw5Gm"
   }]
 }
 !*/
@@ -12390,7 +12404,7 @@ Detects whether or not elements can be animated using CSS
    * @access public
    * @function atRule
    * @param {string} prop - String name of the @-rule to test for
-   * @returns {string|false} The string representing the (possibly prefixed)
+   * @returns {string|boolean} The string representing the (possibly prefixed)
    * valid version of the @-rule, or `false` when it is unsupported.
    * @example
    * ```js
@@ -12456,7 +12470,8 @@ Detects whether or not elements can be animated using CSS
    * @access public
    * @function prefixed
    * @param {string} prop - String name of the property to test for
-   * @param {object} [obj]- An object to test for the prefixed properties on
+   * @param {object} [obj] - An object to test for the prefixed properties on
+   * @param {HTMLElement} [elem] - An element used to test specific properties against
    * @returns {string|false} The string representing the (possibly prefixed) valid
    * version of the property, or `false` when it is unsupported.
    * @example
@@ -12559,7 +12574,7 @@ Detects the ability for the browser to composite backgrounds using blending mode
   "builderAliases": ["css_backgroundsizecover"],
   "notes": [{
     "name" : "MDN Docs",
-    "href": "http://developer.mozilla.org/en/CSS/background-size"
+    "href": "https://developer.mozilla.org/en/CSS/background-size"
   }]
 }
 !*/
@@ -12670,10 +12685,10 @@ Method of allowing calculated values for length units. For example:
   "tags": ["css"],
   "notes": [{
     "name": "CSS Shapes W3C specification",
-    "href": "http://www.w3.org/TR/css-shapes"
+    "href": "https://www.w3.org/TR/css-shapes"
   },{
     "name": "Examples from Adobe",
-    "href": "http://html.adobe.com/webplatform/layout/shapes"
+    "href": "http://webplatform.adobe.com/shapes/"
   }, {
     "name": "Samples showcasing uses of Shapes",
     "href": "http://codepen.io/collection/qFesk"

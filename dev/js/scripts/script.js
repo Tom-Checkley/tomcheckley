@@ -216,7 +216,7 @@ $(document).ready(function() {
 	adjustLogoHeight();
 
 	var timeout;
-	$(window).resize(function() {
+	$(window).on('resize',function() {
 		clearTimeout(timeout);
 		timeout = setTimeout(function() {
 			adjustLogoHeight();
