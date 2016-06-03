@@ -1,1 +1,1 @@
-export PS1="Tom's Mac: \W $ "
+export PS1="\u \W $ "

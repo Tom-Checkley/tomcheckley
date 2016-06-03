@@ -14,7 +14,7 @@ var gulp 					= require('gulp'),
 		modernizr			= require('gulp-modernizr'),
 		jshint				= require('gulp-jshint'),
 		stylish 			= require('jshint-stylish'),
-		browserSync 	= require('browser-sync'),
+	  browserSync 	= require('browser-sync'),
 		reload 				= browserSync.reload;
 
 
@@ -122,7 +122,7 @@ gulp.task('compileSass', function(){
 
 // ==============================
 // Browser Sync
-// ==============================
+// ==============================''
 // browser sync for dev
 gulp.task('browser-sync', ['compileSass', 'minifyScripts'], function(){
 	browserSync({
