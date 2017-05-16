@@ -509,15 +509,12 @@ img {
     background-blend-mode: soft-light; }
 
 .flexbox .side-nav__wrapper nav ul, .flexbox #overlay .overlay__content .content, .flexbox #home .panel__content, .flexbox #contact .wrapper ul {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around; }
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around; }
 
 .no-js-header, .no-js .side-nav {
   background-color: #0b0d14;
@@ -538,12 +535,10 @@ img {
 .row {
   margin: 0.75em 0; }
   .flexbox .row {
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap; }
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
 
 [class*='grid__col--'] {
   margin: 0.5em 0;
@@ -739,8 +734,7 @@ img {
 
 .csscalc.csstransforms .side-nav {
   height: calc(100% + 200px);
-  -webkit-transform: rotate(3deg);
-          transform: rotate(3deg);
+  transform: rotate(3deg);
   top: -100px; }
 
 .side-nav__wrapper {
@@ -762,8 +756,7 @@ img {
         font-size: 2.25em; }
   .csscalc.csstransforms .side-nav__wrapper {
     height: calc(100% - 200px);
-    -webkit-transform: rotate(-3deg);
-            transform: rotate(-3deg); }
+    transform: rotate(-3deg); }
 
 .side-nav__button {
   position: absolute;
@@ -854,12 +847,10 @@ img {
   z-index: 800;
   overflow: hidden; }
   .flexbox .navbar {
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
   .navbar__logo {
     padding-top: 40px;
     height: 40px; }
@@ -880,9 +871,9 @@ img {
     padding: 1px;
     display: inline-block; }
     .flexbox .navbar__button.menu {
-      -webkit-align-self: center;
-          -ms-flex-item-align: center;
-              align-self: center; }
+      -ms-flex-item-align: center;
+          -ms-grid-row-align: center;
+          align-self: center; }
     .navbar__button.contact {
       width: auto;
       top: 11px;
@@ -895,11 +886,9 @@ img {
         position: relative;
         right: 20px; }
       .navbar__button.contact .arrow {
-        position: absolute;
+        position: fixed;
         right: 1px;
-        transition: -webkit-transform .6s;
-        transition: transform .6s;
-        transition: transform .6s, -webkit-transform .6s; }
+        transition: transform .6s; }
 
 #overlay__background {
   position: fixed;
@@ -939,31 +928,25 @@ img {
       height: 100vh;
       position: absolute;
       width: 100%;
-      display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-justify-content: center;
-          -ms-flex-pack: center;
-              justify-content: center; }
+      -ms-flex-pack: center;
+          justify-content: center; }
       #overlay .overlay__content .spinner__holder {
         width: 48px;
         height: 48px;
-        -webkit-align-self: center;
-            -ms-flex-item-align: center;
-                align-self: center; }
+        -ms-flex-item-align: center;
+            -ms-grid-row-align: center;
+            align-self: center; }
         #overlay .overlay__content .spinner__holder span {
           display: block;
           font-size: 3em;
           position: absolute; }
           .cssanimations #overlay .overlay__content .spinner__holder span {
-            -webkit-animation-duration: 1s;
-                    animation-duration: 1s;
-            -webkit-animation-name: rotating;
-                    animation-name: rotating;
-            -webkit-animation-iteration-count: infinite;
-                    animation-iteration-count: infinite;
-            -webkit-animation-timing-function: linear;
-                    animation-timing-function: linear; }
+            animation-duration: 1s;
+            animation-name: rotating;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear; }
     #overlay .overlay__content h1 {
       margin: 0; }
     #overlay .overlay__content a {
@@ -991,15 +974,15 @@ img {
     #overlay .overlay__content .content {
       height: 100%; }
       .flexbox #overlay .overlay__content .content {
-        -webkit-align-self: stretch;
-            -ms-flex-item-align: stretch;
-                align-self: stretch; }
+        -ms-flex-item-align: stretch;
+            -ms-grid-row-align: stretch;
+            align-self: stretch; }
       #overlay .overlay__content .content img {
         display: block;
         height: auto;
-        -webkit-align-self: center;
-            -ms-flex-item-align: center;
-                align-self: center;
+        -ms-flex-item-align: center;
+            -ms-grid-row-align: center;
+            align-self: center;
         width: 90%; }
         @media (min-width: 521px) {
           #overlay .overlay__content .content img {
@@ -1008,18 +991,16 @@ img {
           #overlay .overlay__content .content img {
             width: 80%; } }
         #overlay .overlay__content .content img.page--middle {
-          -webkit-align-self: center;
-              -ms-flex-item-align: center;
-                  align-self: center; }
+          -ms-flex-item-align: center;
+              -ms-grid-row-align: center;
+              align-self: center; }
       #overlay .overlay__content .content .buttons {
         width: 100%; }
         .flexbox #overlay .overlay__content .content .buttons {
-          display: -webkit-flex;
           display: -ms-flexbox;
           display: flex;
-          -webkit-justify-content: space-around;
-              -ms-flex-pack: distribute;
-                  justify-content: space-around; }
+          -ms-flex-pack: distribute;
+              justify-content: space-around; }
       #overlay .overlay__content .content blockquote {
         background-color: #f9f9f9;
         color: #0b0d14;
@@ -1042,21 +1023,11 @@ img {
             margin: -8px 0 0 8px;
             float: right; }
 
-@-webkit-keyframes rotating {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
-
 @keyframes rotating {
   from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
+    transform: rotate(0deg); }
   to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
+    transform: rotate(360deg); } }
 
 #home {
   color: #f9f9f9;
@@ -1123,26 +1094,20 @@ img {
       list-style: none; }
       @media (orientation: portrait) and (max-width: 520px) {
         .flexbox #contact .wrapper ul {
-          display: -webkit-flex;
           display: -ms-flexbox;
           display: flex;
-          -webkit-flex-direction: column;
-              -ms-flex-direction: column;
-                  flex-direction: column;
-          -webkit-justify-content: space-around;
-              -ms-flex-pack: distribute;
-                  justify-content: space-around; } }
+          -ms-flex-direction: column;
+              flex-direction: column;
+          -ms-flex-pack: distribute;
+              justify-content: space-around; } }
       @media (orientation: landscape) and (max-width: 768px) {
         .flexbox #contact .wrapper ul {
-          display: -webkit-flex;
           display: -ms-flexbox;
           display: flex;
-          -webkit-flex-direction: row;
-              -ms-flex-direction: row;
-                  flex-direction: row;
-          -webkit-justify-content: space-around;
-              -ms-flex-pack: distribute;
-                  justify-content: space-around; } }
+          -ms-flex-direction: row;
+              flex-direction: row;
+          -ms-flex-pack: distribute;
+              justify-content: space-around; } }
       #contact .wrapper ul li {
         padding: 15px 0;
         text-align: center; }
@@ -1230,15 +1195,12 @@ img {
   #portfolio h1 {
     margin-bottom: 0; }
   .flexbox #portfolio .row {
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around; }
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around; }
   #portfolio .site-link {
     display: block;
     width: 90%; }
@@ -1249,18 +1211,12 @@ img {
       margin: auto; }
 
 .is-rotating-open {
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  transition: -webkit-transform .6s;
-  transition: transform .6s;
-  transition: transform .6s, -webkit-transform .6s; }
+  transform: rotate(0deg);
+  transition: transform .6s; }
 
 .is-rotating-closed {
-  -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
-  transition: -webkit-transform .6s;
-  transition: transform .6s;
-  transition: transform .6s, -webkit-transform .6s; }
+  transform: rotate(-180deg);
+  transition: transform .6s; }
 
 .is-closed {
   left: -500px;

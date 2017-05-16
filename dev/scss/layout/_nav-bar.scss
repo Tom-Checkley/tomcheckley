@@ -1,62 +1,62 @@
 .navbar {
-	height: 40px;
-	color: $primary-bg-color;
-	width: 100%;
-	position: fixed;
-	top: 0;
-	z-index: 800;
-	overflow: hidden;
-	.flexbox & {
-		display: flex;
-		justify-content: space-between;
-	}
-	@include e(logo) {
-		padding-top: 40px;
-		height: 40px;
-		h1 {
-			display: none;
-			font-size: em(20px);
-			margin-top: em(10px);
-			@include mq(medium) {
-				display: inline;
-				span {
-					display: none;
-				}
-			}
-			@include mq(large) {
-				span {
-					display: inline;
-				}
-			}
-		}
-	}
-	@include e(button) {
-		height: 18px;
-		padding: 1px;
-		display: inline-block;
-		&.menu {
-			.flexbox & {
-				align-self: center;
-			}
-		}
-		&.contact {
-			width: auto;
-			top: 11px;
-			right: 0;
-			position: relative;
-			span {
-				height: 16px;
-				display: inline-block;
-			}
-			.text {
-				position: relative;
-				right: 20px;
-			}
-			.arrow {
-				position: absolute;
-				right: 1px;
-				transition: transform .6s;
-			}
-		}
-	}
+  height: 40px;
+  color: $primary-bg-color;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 800;
+  overflow: hidden;
+  .flexbox & {
+    display: flex;
+    justify-content: space-between;
+  }
+  @include e(logo) {
+    padding-top: 40px;
+    height: 40px;
+    h1 {
+      display: none;
+      font-size: em(20px);
+      margin-top: em(10px);
+      @include mq(medium) {
+        display: inline;
+        span {
+          display: none;
+        }
+      }
+      @include mq(large) {
+        span {
+          display: inline;
+        }
+      }
+    }
+  }
+  @include e(button) {
+    height: 18px;
+    padding: 1px;
+    display: inline-block;
+    &.menu {
+      .flexbox & {
+        align-self: center;
+      }
+    }
+    &.contact {
+      width: auto;
+      top: 11px;
+      right: 0;
+      position: relative;
+      span {
+        height: 16px;
+        display: inline-block;
+      }
+      .text {
+        position: relative;
+        right: 20px;
+      }
+      .arrow {
+        position: fixed;
+        right: 1px;
+        transition: transform .6s;
+      }
+    }
+  }
 }

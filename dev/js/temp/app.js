@@ -10353,282 +10353,291 @@ return jQuery;
 /*global jslint browser: true*/
 /*global $*/
 
-$(document).ready(function() {
-'use strict';
-	
-	$('.no-js-header').remove();
+jQuery(document).ready(function($) {
+  'use strict';
 
-	// // set height of main panels
-	// function screenTest() {
-	// 	var screenHeight = window.innerHeight;
-	// 	$('.panel').each(function() {
-	// 		var $this = $(this);
-	// 		if ($this.height() < screenHeight) {
-	// 			$this.css('height', screenHeight);
-	// 		} else {
-	// 			$this.css('height', 'min-content');
-	// 		}
-	// 	});
-	// }
+  $('.no-js-header').remove();
 
-	// screenTest();
+  // // set height of main panels
+  // function screenTest() {
+  // 	var screenHeight = window.innerHeight;
+  // 	$('.panel').each(function() {
+  // 		var $this = $(this);
+  // 		if ($this.height() < screenHeight) {
+  // 			$this.css('height', screenHeight);
+  // 		} else {
+  // 			$this.css('height', 'min-content');
+  // 		}
+  // 	});
+  // }
 
-	// $(window).on('resize', function() {
-	// 	screenTest();
-	// });
+  // screenTest();
 
-
-	// modernizr background checks
-	var $bgPanel = $('div[class*="panel__background"]');
-	if($('html').hasClass('backgroundblendmode')) {
-		$bgPanel.css({'background-blend-mode': 'soft-light'});
-	} else if ($('html').hasClass('no-backgroundblendmode') && $('html').hasClass('multiplebgs')) {
-		$bgPanel.each(function() {
-			var bgImage = $(this).css('background-image');
-			$(this).css({
-				'background': 'linear-gradient(rgba(11,13,20,.6), rgba(11,13,20,.6)), ' +
-											bgImage,
-				'background-size': 'cover'
-			});
-		});
-	}
+  // $(window).on('resize', function() {
+  // 	screenTest();
+  // });
 
 
-
-	// background change on home screen
-
-	var backgrounds = $('.panel__background div[class^="panel__background--"]'),
-			count = backgrounds.length,
-			i = 0;
-
-	backgrounds.not(':first').hide();
-
-	function slideShow() {
-		var slide = backgrounds.eq(i);
-		backgrounds.fadeOut(400);
-		slide.delay(400).fadeIn(400);
-	}
-
-	function startSlides() {
-		setInterval(function() {
-			i++;
-			if(i >= count) {
-				i = 0;
-			}
-			slideShow();
-		}, 5000);
-	}
-
-	startSlides();
+  // modernizr background checks
+  var $bgPanel = $('div[class*="panel__background"]');
+  if ($('html').hasClass('backgroundblendmode')) {
+    $bgPanel.css({ 'background-blend-mode': 'soft-light' });
+  } else if ($('html').hasClass('no-backgroundblendmode') && $('html').hasClass('multiplebgs')) {
+    $bgPanel.each(function() {
+      var bgImage = $(this).css('background-image');
+      $(this).css({
+        'background': 'linear-gradient(rgba(11,13,20,.6), rgba(11,13,20,.6)), ' +
+          bgImage,
+        'background-size': 'cover'
+      });
+    });
+  }
 
 
 
+  // background change on home screen
 
-	// side nav operations
-	var $sideNav = $('.side-nav'),
-			$navBtn = $('.menu'),
-			$links = $('.side-nav__links');
+  var backgrounds = $('.panel__background div[class^="panel__background--"]'),
+    count = backgrounds.length,
+    i = 0;
 
-	$navBtn.click(function() {
-		$(this).animate({
-			'opacity' : 0
-		},300);
-		if($sideNav.hasClass('is-closed') /*&& $('html').hasClass('csstransitions')*/) {
-			$sideNav.removeClass('is-closed').addClass('is-open');
-			$links.animate({
-				'left': 0
-			}, 600);
-		} else {
-			$sideNav.removeClass('is-open').addClass('is-closed');
-		}
-	});
+  backgrounds.not(':first').hide();
 
-	function navClose() {
-		$links.animate({
-			'left': 500
-		}, 600);
-		$sideNav.removeClass('is-open').addClass('is-closed');
-		$navBtn.animate({
-			'opacity' : 1
-		},300);
-	}
+  function slideShow() {
+    var slide = backgrounds.eq(i);
+    backgrounds.fadeOut(400);
+    slide.delay(400).fadeIn(400);
+  }
 
-	$('.close').click(function() {
-		navClose();
-	});
+  function startSlides() {
+    setInterval(function() {
+      i++;
+      if (i >= count) {
+        i = 0;
+      }
+      slideShow();
+    }, 5000);
+  }
 
-	$('.nav-link').on('click', function(event) {
-		event.preventDefault();
-		var time;
-		if($(this).parents().hasClass('side-nav')) {
-			time = 0;
-		} else {
-			time = 600;
-		}
-		var href = $(this).attr('href'),
-				$location = $(href);
-		navClose();
-		$('html body').animate({
-			scrollTop: $location.offset().top - 40
-		},time);
-	});
-
-	// parallax nav menu
-	$(window).on('scroll', function() {  
-		var navbarColor = '11,13,20',
-				smallLogoHeight = $('.navbar__logo').height(),
-				bigLogoHeight = $('.head-block').height(),
-				navbarHeight = $('.navbar').height(),
-				smallSpeed = (smallLogoHeight / bigLogoHeight),
-			  ySmall = ($(window).scrollTop() * smallSpeed),
-				smallPadding = (navbarHeight - ySmall),
-				smallLogoEndPos = 10;
-
-	  if (smallPadding > navbarHeight) {
-	  	smallPadding = navbarHeight;
-	  }
-	  if (smallPadding < smallLogoEndPos) {
-	  	smallPadding = smallLogoEndPos; 
-	  }
-	  if (smallPadding < 0) {
-	  	smallPadding = 0;
-	  }
-	  
-	  $('.navbar__logo').css({ 'padding-top': smallPadding + 'px'});
-	  
-	  var navOpacity = (ySmall / smallLogoHeight); 
-	  if  (navOpacity > 1) {
-	  	navOpacity = 1;
-	  }
-	  if (navOpacity < 0) {
-	  	navOpacity = 0;
-	  }
-	  var navBackColor = 'rgba(' + navbarColor + ', ' + navOpacity + ')';
-	  $('.navbar').css({'background-color': navBackColor});
-	});
-
-	
-	// Contact button controls
-	$('.contact-menu').addClass('closed');
-	$('.contact').on('click', function() {
-		if($('.contact-menu').hasClass('closed')) {
-			$('body').addClass('stop-scrolling').bind('touchmove', function(e){e.preventDefault();});
-			$('.navbar').css('background-color', 'rgba(11,13,20,1)');
-			$('.arrow').removeClass('is-rotating-open').addClass('is-rotating-closed');
-			$('#contact').slideDown(600);
-			$('.contact-menu').removeClass('closed').addClass('open');
-			$('.contact .text').text("Close");
-
-		} else {
-			$('body').removeClass('stop-scrolling').unbind('touchmove');
-			$('.arrow').removeClass('is-rotating-closed').addClass('is-rotating-open');
-			$('.contact-menu').removeClass('open').addClass('closed');
-			$('.contact .text').text("Contact Me");
-			$('#contact').slideUp(600);
-			$('#contact .details:not(.is-hidden)').each(function() {
-				$(this).addClass('is-hidden').css('display', 'none');
-			});
-			$('.contact span').css('color', '#f9f9f9');
-		}
-		
-	});
-
-	// reveal contact 
-	$("#contact a").on('click', function() {
-		$('#contact .details:not(.is-hidden)').each(function() {
-			$(this).addClass('is-hidden').css('display', 'none');
-		});
-		var details = $(this).find('.details');
-		
-		details.removeClass('is-hidden').css('display', 'block');
-	});
-
-	$("#contact a").on('mouseenter', function() {
-		$('#contact .details:not(.is-hidden)').each(function() {
-			$(this).addClass('is-hidden').css('display', 'none');
-		});
-		var details = $(this).find('.details');
-		
-		details.removeClass('is-hidden').css('display', 'block');
-	});
+  startSlides();
 
 
 
 
-	// change height of git logo to same as other portfolio imgs
+  // side nav operations
+  var $sideNav = $('.side-nav'),
+    $navBtn = $('.menu'),
+    $links = $('.side-nav__links');
 
-	function adjustLogoHeight() {
-		var height = $('.screenshot').load().height();
-		$('.gitLogo').css({
-			'height': height,
-			'width': 'auto'
-		});
-	}
+  $navBtn.click(function() {
+    $(this).animate({
+      'opacity': 0
+    }, 300);
+    if ($sideNav.hasClass('is-closed') /*&& $('html').hasClass('csstransitions')*/ ) {
+      $sideNav.removeClass('is-closed').addClass('is-open');
+      $links.animate({
+        'left': 0
+      }, 600);
+    } else {
+      $sideNav.removeClass('is-open').addClass('is-closed');
+    }
+  });
 
-	adjustLogoHeight();
+  function navClose() {
+    $links.animate({
+      'left': 500
+    }, 600);
+    $sideNav.removeClass('is-open').addClass('is-closed');
+    $navBtn.animate({
+      'opacity': 1
+    }, 300);
+  }
 
-	var timeout;
-	$(window).on('resize',function() {
-		clearTimeout(timeout);
-		timeout = setTimeout(function() {
-			adjustLogoHeight();
-		},10);
-	});
+  $('.close').click(function() {
+    navClose();
+  });
 
-	$(window).resize();
+  $('.nav-link').on('click', function(event) {
+    event.preventDefault();
+
+    var time;
+    if ($(this).parents().hasClass('side-nav')) {
+      time = 0;
+      console.log(time);
+    } else {
+      time = 600;
+      console.log(time);
+    }
+    var href = $(this).attr('href');
+    // $location = $(href);
+    // console.log(href);
+
+    $('html').animate({
+      scrollTop: $(href).offset().top - 40
+    }, time);
+    navClose();
+  });
+
+  // parallax nav menu
+  $(window).on('scroll', function() {
+    var navbarColor = '11,13,20',
+      smallLogoHeight = $('.navbar__logo').height(),
+      bigLogoHeight = $('.head-block').height(),
+      navbarHeight = $('.navbar').height(),
+      smallSpeed = (smallLogoHeight / bigLogoHeight),
+      ySmall = ($(window).scrollTop() * smallSpeed),
+      smallPadding = (navbarHeight - ySmall),
+      smallLogoEndPos = 10;
+
+    if (smallPadding > navbarHeight) {
+      smallPadding = navbarHeight;
+    }
+    if (smallPadding < smallLogoEndPos) {
+      smallPadding = smallLogoEndPos;
+    }
+    if (smallPadding < 0) {
+      smallPadding = 0;
+    }
+
+    $('.navbar__logo').css({ 'padding-top': smallPadding + 'px' });
+
+    var navOpacity = (ySmall / smallLogoHeight);
+    if (navOpacity > 1) {
+      navOpacity = 1;
+    }
+    if (navOpacity < 0) {
+      navOpacity = 0;
+    }
+    var navBackColor = 'rgba(' + navbarColor + ', ' + navOpacity + ')';
+    $('.navbar').css({ 'background-color': navBackColor });
+  });
+
+
+  // Contact button controls
+  $('.contact-menu').addClass('closed');
+  $('.contact').on('click', function(event) {
+    event.stopPropagation();
+    if ($('.contact-menu').hasClass('closed')) {
+      $('.arrow').removeClass('is-rotating-open', function(e) { e.stopPropagaion(); }).addClass('is-rotating-closed', function(e) { e.stopPropagaion(); });
+
+      $('body').addClass('stop-scrolling').bind('touchmove', function(e) { e.preventDefault(); });
+      $('.navbar').css('background-color', 'rgba(11,13,20,1)');
+
+      $('#contact').slideDown(600);
+      $('.contact-menu').removeClass('closed').addClass('open');
+      $('.contact .text').text("Close");
+
+    } else {
+      $('.arrow').removeClass('is-rotating-closed', function(e) { e.stopPropagaion(); }).addClass('is-rotating-open', function(e) { e.stopPropagaion(); });
+
+      $('body').removeClass('stop-scrolling').unbind('touchmove');
+
+      $('.contact-menu').removeClass('open').addClass('closed');
+      $('.contact .text').text("Contact Me");
+      $('#contact').slideUp(600);
+      $('#contact .details:not(.is-hidden)').each(function() {
+        $(this).addClass('is-hidden').css('display', 'none');
+      });
+      $('.contact span').css('color', '#f9f9f9');
+    }
+
+  });
+
+  // reveal contact 
+  $("#contact a").on('click', function() {
+    $('#contact .details:not(.is-hidden)').each(function() {
+      $(this).addClass('is-hidden').css('display', 'none');
+    });
+    var details = $(this).find('.details');
+
+    details.removeClass('is-hidden').css('display', 'block');
+  });
+
+  $("#contact a").on('mouseenter', function() {
+    $('#contact .details:not(.is-hidden)').each(function() {
+      $(this).addClass('is-hidden').css('display', 'none');
+    });
+    var details = $(this).find('.details');
+
+    details.removeClass('is-hidden').css('display', 'block');
+  });
 
 
 
-	window.onpopstate = function(event)
-{
-    alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
-};
+
+  // change height of git logo to same as other portfolio imgs
+
+  function adjustLogoHeight() {
+    var height = $('.screenshot').load().height();
+    $('.gitLogo').css({
+      'height': height,
+      'width': 'auto'
+    });
+  }
+
+  adjustLogoHeight();
+
+  var timeout;
+  $(window).on('resize', function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(function() {
+      adjustLogoHeight();
+    }, 10);
+  });
+
+  $(window).resize();
 
 
 
-	// ajax for portfolio
-	var $link = $('.site-link'),
-			$holder = $('#ajax-container'),
-			$spinner = $('.spinner');
-	$link.on('click', function(event) {
-		$('.main-wrapper').addClass('stop-scrolling').bind('touchmove', function(e){e.preventDefault();});
-		event.preventDefault();
-		$holder.empty();
-		$spinner.fadeIn(100);
-		var content = $(this).attr('href');
-		$('#overlay, #overlay__background').show();
-		$holder.load(content, function(response, status, xhr) {
-			$spinner.fadeOut(100);
-			if(status == 'error') {
-				var msg = 'Sorry there was an error loading the requested content: ';
-				$holder.html(msg + xhr.status + ' ' + xhr.statusText);
-			}
-			var height = $('#ajax-container').height();
-			var screenHeight = window.innerHeight;
-			if(height < screenHeight && window.innerWidth >= 1100) {
-				$('#ajax-container div[class*="grid__col"').css('height', '100vh'); 
-			} else if(height > screenHeight && window.innerWidth >= 1100){
-				$('#ajax-container div[class*="grid__col"').css('height', height); 
-			}
-		});
+  // window.onpopstate = function(event) {
+  //   alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+  // };
 
-	});
 
-	$('#overlay button').on('click', function() {
-		$('.main-wrapper').removeClass('stop-scrolling').unbind('touchmove');
-		$('html body').animate({
-			scrollTop: $('#portfolio').offset().top - 40
-		},0);
-		$('#overlay, #overlay__background').hide();
-		
-	});
 
-	// open new page window for links off site
-	$('.external-link').attr('target', '_blank');
+  // ajax for portfolio
+  var $link = $('.site-link'),
+    $holder = $('#ajax-container'),
+    $spinner = $('.spinner');
+  $link.on('click', function(event) {
+    $('.main-wrapper').addClass('stop-scrolling').bind('touchmove', function(e) { e.preventDefault(); });
+    event.preventDefault();
+    $holder.empty();
+    $spinner.fadeIn(100);
+    var content = $(this).attr('href');
+    $('#overlay, #overlay__background').show();
+    $holder.load(content, function(response, status, xhr) {
+      $spinner.fadeOut(100);
+      if (status == 'error') {
+        var msg = 'Sorry there was an error loading the requested content: ';
+        $holder.html(msg + xhr.status + ' ' + xhr.statusText);
+      }
+      var height = $('#ajax-container').height();
+      var screenHeight = window.innerHeight;
+      if (height < screenHeight && window.innerWidth >= 1100) {
+        $('#ajax-container div[class*="grid__col"').css('height', '100vh');
+      } else if (height > screenHeight && window.innerWidth >= 1100) {
+        $('#ajax-container div[class*="grid__col"').css('height', height);
+      }
+    });
 
-	$(document).ajaxComplete(function() {
-		$('.external-link').attr('target', '_blank');
-	});
+  });
+
+  $('#overlay button').on('click', function() {
+    $('.main-wrapper').removeClass('stop-scrolling').unbind('touchmove');
+    $('html body').animate({
+      scrollTop: $('#portfolio').offset().top - 40
+    }, 0);
+    $('#overlay, #overlay__background').hide();
+
+  });
+
+  // open new page window for links off site
+  $('.external-link').attr('target', '_blank');
+
+  $(document).ajaxComplete(function() {
+    $('.external-link').attr('target', '_blank');
+  });
 
 
 
@@ -10636,10 +10645,9 @@ $(document).ready(function() {
 
 
 }); //end document.ready
-
 /*!
- * modernizr v3.3.1
- * Build http://modernizr.com/download?-backgroundblendmode-bgsizecover-checked-contains-cors-cssanimations-csscalc-csstransforms-csstransitions-details-flexbox-hidden-multiplebgs-opacity-shapes-supports-svg-target-addtest-fnbind-printshiv-setclasses-testprop-dontmin
+ * modernizr v3.5.0
+ * Build https://modernizr.com/download?-backgroundblendmode-bgsizecover-checked-contains-contenteditable-cors-cssanimations-csscalc-csstransforms-csstransitions-details-flexbox-hidden-input-multiplebgs-opacity-shapes-supports-svg-target-addtest-fnbind-printshiv-setclasses-testprop-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -10675,7 +10683,7 @@ $(document).ready(function() {
 
   var ModernizrProto = {
     // The current version, dummy
-    _version: '3.3.1',
+    _version: '3.5.0',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
@@ -10798,7 +10806,6 @@ $(document).ready(function() {
             Modernizr[featureNameSplit[0]] = result;
           } else {
             // cast to a Boolean, if not one already
-            /* jshint -W053 */
             if (Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
               Modernizr[featureNameSplit[0]] = new Boolean(Modernizr[featureNameSplit[0]]);
             }
@@ -10861,7 +10868,11 @@ $(document).ready(function() {
     if (Modernizr._config.enableClasses) {
       // Add the new classes
       className += ' ' + classPrefix + classes.join(' ' + classPrefix);
-      isSVG ? docElement.className.baseVal = className : docElement.className = className;
+      if (isSVG) {
+        docElement.className.baseVal = className;
+      } else {
+        docElement.className = className;
+      }
     }
 
   }
@@ -11084,7 +11095,6 @@ $(document).ready(function() {
         Modernizr[featureNameSplit[0]] = test;
       } else {
         // cast to a Boolean, if not one already
-        /* jshint -W053 */
         if (Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
           Modernizr[featureNameSplit[0]] = new Boolean(Modernizr[featureNameSplit[0]]);
         }
@@ -11093,9 +11103,7 @@ $(document).ready(function() {
       }
 
       // Set a single class (either `feature` or `no-feature`)
-      /* jshint -W041 */
       setClasses([(!!test && test != false ? '' : 'no-') + featureNameSplit.join('-')]);
-      /* jshint +W041 */
 
       // Trigger the event
       Modernizr._trigger(feature, test);
@@ -11125,7 +11133,6 @@ $(document).ready(function() {
      * @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
      */
     ;(function(window, document) {
-      /*jshint evil:true */
       /** version */
       var version = '3.7.3';
 
@@ -11329,10 +11336,10 @@ $(document).ready(function() {
                                                         'h.shivMethods&&(' +
                                                         // unroll the `createElement` calls
                                                         getElements().join().replace(/[\w\-:]+/g, function(nodeName) {
-          data.createElem(nodeName);
-          data.frag.createElement(nodeName);
-          return 'c("' + nodeName + '")';
-        }) +
+                                                          data.createElem(nodeName);
+                                                          data.frag.createElement(nodeName);
+                                                          return 'c("' + nodeName + '")';
+                                                        }) +
           ');return n}'
                                                        )(html5, data.frag);
       }
@@ -11474,7 +11481,7 @@ $(document).ready(function() {
        */
       function addWrappers(ownerDocument) {
         var node,
-        nodes = ownerDocument.getElementsByTagName('*'),
+          nodes = ownerDocument.getElementsByTagName('*'),
           index = nodes.length,
           reElements = RegExp('^(?:' + getElements().join('|') + ')$', 'i'),
           result = [];
@@ -11496,7 +11503,7 @@ $(document).ready(function() {
        */
       function createWrapper(element) {
         var node,
-        nodes = element.attributes,
+          nodes = element.attributes,
           index = nodes.length,
           wrapper = element.ownerDocument.createElement(shivNamespace + ':' + element.nodeName);
 
@@ -11519,7 +11526,7 @@ $(document).ready(function() {
        */
       function shivCssText(cssText) {
         var pair,
-        parts = cssText.split('{'),
+          parts = cssText.split('{'),
           index = parts.length,
           reElements = RegExp('(^|[\\s,>+~])(' + getElements().join('|') + ')(?=[[\\s,>+~#.:]|$)', 'gi'),
           replacement = '$1' + shivNamespace + '\\:$2';
@@ -11554,8 +11561,8 @@ $(document).ready(function() {
        */
       function shivPrint(ownerDocument) {
         var shivedSheet,
-        wrappers,
-        data = getExpandoData(ownerDocument),
+          wrappers,
+          data = getExpandoData(ownerDocument),
           namespaces = ownerDocument.namespaces,
           ownerWindow = ownerDocument.parentWindow;
 
@@ -11579,9 +11586,9 @@ $(document).ready(function() {
           removeSheet();
 
           var imports,
-          length,
-          sheet,
-          collection = ownerDocument.styleSheets,
+            length,
+            sheet,
+            collection = ownerDocument.styleSheets,
             cssText = [],
             index = collection.length,
             sheets = Array(index);
@@ -11644,7 +11651,7 @@ $(document).ready(function() {
         module.exports = html5;
       }
 
-    }(typeof window !== "undefined" ? window : this, document));
+    }(typeof window !== 'undefined' ? window : this, document));
   }
 
   ;
@@ -11808,6 +11815,7 @@ $(document).ready(function() {
       body.parentNode.removeChild(body);
       docElement.style.overflow = docOverflow;
       // Trigger layout so kinetic scrolling isn't disabled in iOS6+
+      // eslint-disable-next-line
       docElement.offsetHeight;
     } else {
       div.parentNode.removeChild(div);
@@ -11834,6 +11842,44 @@ $(document).ready(function() {
       return '-' + m1.toLowerCase();
     }).replace(/^ms-/, '-ms-');
   }
+  ;
+
+
+  /**
+   * wrapper around getComputedStyle, to fix issues with Firefox returning null when
+   * called inside of a hidden iframe
+   *
+   * @access private
+   * @function computedStyle
+   * @param {HTMLElement|SVGElement} - The element we want to find the computed styles of
+   * @param {string|null} [pseudoSelector]- An optional pseudo element selector (e.g. :before), of null if none
+   * @returns {CSSStyleDeclaration}
+   */
+
+  function computedStyle(elem, pseudo, prop) {
+    var result;
+
+    if ('getComputedStyle' in window) {
+      result = getComputedStyle.call(window, elem, pseudo);
+      var console = window.console;
+
+      if (result !== null) {
+        if (prop) {
+          result = result.getPropertyValue(prop);
+        }
+      } else {
+        if (console) {
+          var method = console.error ? 'error' : 'log';
+          console[method].call(console, 'getComputedStyle returning null, its possible modernizr test results are inaccurate');
+        }
+      }
+    } else {
+      result = !pseudo && elem.currentStyle && elem.currentStyle[prop];
+    }
+
+    return result;
+  }
+
   ;
 
   /**
@@ -11870,7 +11916,7 @@ $(document).ready(function() {
       }
       conditionText = conditionText.join(' or ');
       return injectElementWithStyles('@supports (' + conditionText + ') { #modernizr { position: absolute; } }', function(node) {
-        return getComputedStyle(node, null).position == 'absolute';
+        return computedStyle(node, null, 'position') == 'absolute';
       });
     }
     return undefined;
@@ -11927,8 +11973,9 @@ $(document).ready(function() {
     // inside of an SVG element, in certain browsers, the `style` element is only
     // defined for valid tags. Therefore, if `modernizr` does not have one, we
     // fall back to a less used element and hope for the best.
-    var elems = ['modernizr', 'tspan'];
-    while (!mStyle.style) {
+    // for strict XHTML browsers the hardly used samp element is used
+    var elems = ['modernizr', 'tspan', 'samp'];
+    while (!mStyle.style && elems.length) {
       afterInit = true;
       mStyle.modElem = createElement(elems.shift());
       mStyle.style = mStyle.modElem.style;
@@ -12043,6 +12090,120 @@ $(document).ready(function() {
   }
 
   ;
+/*!
+{
+  "name": "Content Editable",
+  "property": "contenteditable",
+  "caniuse": "contenteditable",
+  "notes": [{
+    "name": "WHATWG spec",
+    "href": "https://html.spec.whatwg.org/multipage/interaction.html#contenteditable"
+  }]
+}
+!*/
+/* DOC
+Detects support for the `contenteditable` attribute of elements, allowing their DOM text contents to be edited directly by the user.
+*/
+
+  Modernizr.addTest('contenteditable', function() {
+    // early bail out
+    if (!('contentEditable' in docElement)) {
+      return;
+    }
+
+    // some mobile browsers (android < 3.0, iOS < 5) claim to support
+    // contentEditable, but but don't really. This test checks to see
+    // confirms whether or not it actually supports it.
+
+    var div = createElement('div');
+    div.contentEditable = true;
+    return div.contentEditable === 'true';
+  });
+
+/*!
+{
+  "name": "Cross-Origin Resource Sharing",
+  "property": "cors",
+  "caniuse": "cors",
+  "authors": ["Theodoor van Donge"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS"
+  }],
+  "polyfills": ["pmxdr", "ppx", "flxhr"]
+}
+!*/
+/* DOC
+Detects support for Cross-Origin Resource Sharing: method of performing XMLHttpRequests across domains.
+*/
+
+  Modernizr.addTest('cors', 'XMLHttpRequest' in window && 'withCredentials' in new XMLHttpRequest());
+
+
+  /**
+   * since we have a fairly large number of input tests that don't mutate the input
+   * we create a single element that can be shared with all of those tests for a
+   * minor perf boost
+   *
+   * @access private
+   * @returns {HTMLInputElement}
+   */
+  var inputElem = createElement('input');
+  
+/*!
+{
+  "name": "Input attributes",
+  "property": "input",
+  "tags": ["forms"],
+  "authors": ["Mike Taylor"],
+  "notes": [{
+    "name": "WHATWG spec",
+    "href": "https://html.spec.whatwg.org/multipage/forms.html#input-type-attr-summary"
+  }],
+  "knownBugs": ["Some blackberry devices report false positive for input.multiple"]
+}
+!*/
+/* DOC
+Detects support for HTML5 `<input>` element attributes and exposes Boolean subproperties with the results:
+
+```javascript
+Modernizr.input.autocomplete
+Modernizr.input.autofocus
+Modernizr.input.list
+Modernizr.input.max
+Modernizr.input.min
+Modernizr.input.multiple
+Modernizr.input.pattern
+Modernizr.input.placeholder
+Modernizr.input.required
+Modernizr.input.step
+```
+*/
+
+  // Run through HTML5's new input attributes to see if the UA understands any.
+  // Mike Taylr has created a comprehensive resource for testing these attributes
+  //   when applied to all input types:
+  //   miketaylr.com/code/input-type-attr.html
+
+  // Only input placeholder is tested while textarea's placeholder is not.
+  // Currently Safari 4 and Opera 11 have support only for the input placeholder
+  // Both tests are available in feature-detects/forms-placeholder.js
+
+  var inputattrs = 'autocomplete autofocus list placeholder max min multiple pattern required step'.split(' ');
+  var attrs = {};
+
+  Modernizr.input = (function(props) {
+    for (var i = 0, len = props.length; i < len; i++) {
+      attrs[ props[i] ] = !!(props[i] in inputElem);
+    }
+    if (attrs.list) {
+      // safari false positive's on datalist: webk.it/74252
+      // see also github.com/Modernizr/Modernizr/issues/146
+      attrs.list = !!(createElement('datalist') && window.HTMLDataListElement);
+    }
+    return attrs;
+  })(inputattrs);
+
 
   /**
    * testStyles injects an element with style element and some CSS rules
@@ -12105,61 +12266,6 @@ $(document).ready(function() {
   
 /*!
 {
-  "name": "details Element",
-  "caniuse": "details",
-  "property": "details",
-  "tags": ["elem"],
-  "builderAliases": ["elem_details"],
-  "authors": ["@mathias"],
-  "notes": [{
-    "name": "Mathias' Original",
-    "href": "https://mathiasbynens.be/notes/html5-details-jquery#comment-35"
-  }]
-}
-!*/
-
-  Modernizr.addTest('details', function() {
-    var el = createElement('details');
-    var diff;
-
-    // return early if possible; thanks @aFarkas!
-    if (!('open' in el)) {
-      return false;
-    }
-
-    testStyles('#modernizr details{display:block}', function(node) {
-      node.appendChild(el);
-      el.innerHTML = '<summary>a</summary>b';
-      diff = el.offsetHeight;
-      el.open = true;
-      diff = diff != el.offsetHeight;
-    });
-
-
-    return diff;
-  });
-
-/*!
-{
-  "name": "Cross-Origin Resource Sharing",
-  "property": "cors",
-  "caniuse": "cors",
-  "authors": ["Theodoor van Donge"],
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS"
-  }],
-  "polyfills": ["pmxdr", "ppx", "flxhr"]
-}
-!*/
-/* DOC
-Detects support for Cross-Origin Resource Sharing: method of performing XMLHttpRequests across domains.
-*/
-
-  Modernizr.addTest('cors', 'XMLHttpRequest' in window && 'withCredentials' in new XMLHttpRequest());
-
-/*!
-{
   "name": "CSS :checked pseudo-selector",
   "caniuse": "css-sel3",
   "property": "checked",
@@ -12214,7 +12320,9 @@ Detects support for Cross-Origin Resource Sharing: method of performing XMLHttpR
    * ```
    */
 
-  var prefixes = (ModernizrProto._config.usePrefixes ? ' -webkit- -moz- -o- -ms- '.split(' ') : []);
+  // we use ['',''] rather than an empty array in order to allow a pattern of .`join()`ing prefixes to test
+  // values in feature detects to continue to work
+  var prefixes = (ModernizrProto._config.usePrefixes ? ' -webkit- -moz- -o- -ms- '.split(' ') : ['','']);
 
   // expose these for the plugin API. Look in the source for how to join() them against your input
   ModernizrProto._prefixes = prefixes;
@@ -12255,7 +12363,7 @@ Detects support for Cross-Origin Resource Sharing: method of performing XMLHttpR
     "href": "http://dev.w3.org/csswg/css3-conditional/#at-supports"
   },{
     "name": "Related Github Issue",
-    "href": "github.com/Modernizr/Modernizr/issues/648"
+    "href": "https://github.com/Modernizr/Modernizr/issues/648"
   },{
     "name": "W3 Info",
     "href": "http://dev.w3.org/csswg/css3-conditional/#the-csssupportsrule-interface"
@@ -12324,6 +12432,42 @@ Does the browser support the HTML5 [hidden] attribute?
 
 /*!
 {
+  "name": "details Element",
+  "caniuse": "details",
+  "property": "details",
+  "tags": ["elem"],
+  "builderAliases": ["elem_details"],
+  "authors": ["@mathias"],
+  "notes": [{
+    "name": "Mathias' Original",
+    "href": "https://mathiasbynens.be/notes/html5-details-jquery#comment-35"
+  }]
+}
+!*/
+
+  Modernizr.addTest('details', function() {
+    var el = createElement('details');
+    var diff;
+
+    // return early if possible; thanks @aFarkas!
+    if (!('open' in el)) {
+      return false;
+    }
+
+    testStyles('#modernizr details{display:block}', function(node) {
+      node.appendChild(el);
+      el.innerHTML = '<summary>a</summary>b';
+      diff = el.offsetHeight;
+      el.open = true;
+      diff = diff != el.offsetHeight;
+    });
+
+
+    return diff;
+  });
+
+/*!
+{
   "name": "ES5 String.prototype.contains",
   "property": "contains",
   "authors": ["Robert Kowalski"],
@@ -12385,12 +12529,12 @@ Detects support for SVG in `<embed>` or `<object>` elements.
 
 
   /**
-   * If the browsers follow the spec, then they would expose vendor-specific style as:
+   * If the browsers follow the spec, then they would expose vendor-specific styles as:
    *   elem.style.WebkitBorderRadius
-   * instead of something like the following, which would be technically incorrect:
+   * instead of something like the following (which is technically incorrect):
    *   elem.style.webkitBorderRadius
 
-   * Webkit ghosts their properties in lowercase but Opera & Moz do not.
+   * WebKit ghosts their properties in lowercase but Opera & Moz do not.
    * Microsoft uses a lowercase `ms` instead of the correct `Ms` in IE8+
    *   erik.eae.net/archives/2008/03/10/21.48.10/
 
@@ -12438,6 +12582,7 @@ Detects support for SVG in `<embed>` or `<object>` elements.
    * @param {array.<string>} props - An array of properties to test for
    * @param {object} obj - An object or Element you want to use to test the parameters again
    * @param {boolean|object} elem - An Element to bind the property lookup again. Use `false` to prevent the check
+   * @returns {false|*} returns false if the prop is unsupported, otherwise the value that is supported
    */
   function testDOMProps(props, obj, elem) {
     var item;
@@ -12480,11 +12625,12 @@ Detects support for SVG in `<embed>` or `<object>` elements.
    * @param {HTMLElement|SVGElement} [elem] - An element used to test the property and value against
    * @param {string} [value] - A string of a css value
    * @param {boolean} [skipValueTest] - An boolean representing if you want to test if value sticks when set
+   * @returns {false|string} returns the string version of the property, or false if it is unsupported
    */
   function testPropsAll(prop, prefixed, elem, value, skipValueTest) {
 
     var ucProp = prop.charAt(0).toUpperCase() + prop.slice(1),
-    props = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
+      props = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
 
     // did they call .prefixed('boxSizing') or are we just testing a prop?
     if (is(prefixed, 'string') || is(prefixed, 'undefined')) {
